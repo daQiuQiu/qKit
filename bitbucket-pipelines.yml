@@ -15,8 +15,7 @@ pipelines:
         script:  
             ##########  UPLOAD SDK TO AWS S3 ##########
             - ls
-            - cd ATPKit
+            - cd ATPKit/ATPBuild
             - ls
-            - aws s3 cp ATPBuild s3://releases.atlasp.io --recursive
-            - cd ATPBuild/ATP_iOS_SDK
-            - aws s3 cp ATP_iOS_latest.zip s3://releases.atlasp.io/sdk/SDK-IOS/ 
+            - aws s3 cp ATP_iOS_SDK s3://releases.atlasp.io/sdk/SDK-IOS/ --recursive
+            
