@@ -1,0 +1,37 @@
+[
+  {
+    "issueTime": "2011-11-09",
+    "coverUrl": "https://s3-us-west-2.amazonaws.com/common-assets-api.atlasp.io/images/LiteCoin.png",
+    "whitePaper": "--",
+    "title": "LTC",
+    "website": "https://litecoin.org/"
+  }, 
+  {
+    "issueTime": "2017-06-27",
+    "coverUrl": "https://s3-us-west-2.amazonaws.com/common-assets-api.atlasp.io/images/omg.png",
+    "whitePaper": "https://cdn.omise.co/omg/whitepaper.pdf",
+    "title": "OMG",
+    "website": "https://omg.omise.co"
+  }, 
+  {
+    "issueTime": "2017-07-23",
+    "coverUrl": "https://s3-us-west-2.amazonaws.com/common-assets-api.atlasp.io/images/iota.png",
+    "whitePaper": "https://iota.org/IOTA_Whitepaper.pdf",
+    "title": "IOTA",
+    "website": "https://www.iota.org"
+  }, 
+  {
+    "issueTime": "2014-01-18",
+    "coverUrl": "https://s3-us-west-2.amazonaws.com/common-assets-api.atlasp.io/images/dash.png",
+    "whitePaper": "https://dashpay.atlassian.net/wiki/spaces/DOC/pages/5472261/Whitepaper",
+    "title": "DASH",
+    "website": "https://www.dash.org"
+  }, 
+  {
+    "issueTime": "2016-10-28",
+    "coverUrl": "https://s3-us-west-2.amazonaws.com/common-assets-api.atlasp.io/images/cash.png",
+    "whitePaper": "http://zerocash-project.org/media/pdf/zerocash-extended-20140518.pdf",
+    "title": "ZEC",
+    "website": "https://z.cash/"
+  }
+]

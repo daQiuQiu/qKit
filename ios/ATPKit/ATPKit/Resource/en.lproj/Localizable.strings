@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  ATPKit
+
+  Created by yiren on 2018/10/28.
+  Copyright © 2018 Atlas Protocol. All rights reserved.
+*/
+"submit" = "Submit to Blockchain";
+"address" = "Current Address: ";
+"提交" = "Submit";
+"取消" = "Cancel";
+"继续" = "Continue";
+"你的信息即将上链" = "Your submission will soon be on chain";
+"信息上链需缴纳少量矿工费，矿工费为奖励给矿工的费用，非ATP收取。" = "Write Blockchain will consume gas, gas fee goes to miners, not charged by ATP";
+"ATP链上互动" = "ATP Onchain Interaction";
+"请勾选空投协议" = "Please acknowledge the Airdrop Agreement";
+"完成" = "Complete";
+"感谢您参与本次活动" = "Thank you for participating";
+"你的信息已经上链" = "Your information is onchain now";
+"交易哈希" = "Transaction hash";
+"复制交易哈希" = "Copy transaction hash";
+"复制浏览器链接" = "Copy browser links";
+"复制成功" = "Copy succeeded";
+"上链中" = "Submitting to Blockchain";
+"查看回执" = "View Receipt";
+"请完成选项再提交" = "Please complete the selection before submitting";
+"网络连接失败,请稍后再试" = "Network failure, please retry later";

@@ -1,0 +1,11 @@
+framework module Renderer {
+  umbrella header "Renderer.h"
+
+  export *
+  module * { export * }
+}
+
+module Renderer.Swift {
+    header "Renderer-Swift.h"
+    requires objc
+}
