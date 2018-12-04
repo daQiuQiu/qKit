@@ -1,0 +1,22 @@
+pipelines:
+  default:
+    - step:
+        name: CD DIR
+        script:
+            # Grab the Android Support Repo which isn't included in the container
+            - unset ANDROID_NDK_HOME
+            - cd ATPKit/ATPBuild
+            - ls
+            
+    - step:
+        name: UPLOAD iOS SDK TO AWS S3
+        image: atlassian/pipelines-awscli
+        trigger: manual
+        script:  
+            ##########  UPLOAD SDK TO AWS S3 ##########
+            - ls
+            - cd ATPKit
+            - ls
+            - aws s3 cp ATPBuild s3://releases.atlasp.io --recursive
+            - cd ATPBuild/ATP_iOS_SDK
+            - aws s3 cp ATP_iOS_latest.zip s3://releases.atlasp.io/sdk/SDK-IOS/ 
