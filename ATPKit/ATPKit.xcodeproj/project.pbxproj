@@ -92,6 +92,8 @@
 		8F534AA321ABCD050043AD34 /* ATPKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 3EA449B5213832C200CE2BB9 /* ATPKit.framework */; };
 		8F5A790821A6E81100FAFF5E /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F5A790721A6E81100FAFF5E /* success.png */; };
 		8F5CB6DB218BED2900650EE1 /* BCInteractKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CB6DA218BED2900650EE1 /* BCInteractKit.swift */; };
+		8F619B4B21DC9FB50057A179 /* ATPWKWebViewRenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F619B4A21DC9FB50057A179 /* ATPWKWebViewRenderVC.swift */; };
+		8F619B5321DCBA590057A179 /* FBDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F619B5221DCBA590057A179 /* FBDisplayView.swift */; };
 		8F6789CE21A25DDC00537EB9 /* ATPVotingRenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */; };
 		8F6789D021A27E9D00537EB9 /* VoteDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */; };
 		8F6789D221A2922900537EB9 /* VoteTIEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789D121A2922900537EB9 /* VoteTIEModel.swift */; };
@@ -255,6 +257,8 @@
 		8F51EC1E2195966D00248F7E /* atplogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atplogo.png; sourceTree = "<group>"; };
 		8F5A790721A6E81100FAFF5E /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
 		8F5CB6DA218BED2900650EE1 /* BCInteractKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCInteractKit.swift; sourceTree = "<group>"; };
+		8F619B4A21DC9FB50057A179 /* ATPWKWebViewRenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPWKWebViewRenderVC.swift; sourceTree = "<group>"; };
+		8F619B5221DCBA590057A179 /* FBDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDisplayView.swift; sourceTree = "<group>"; };
 		8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPVotingRenderVC.swift; sourceTree = "<group>"; };
 		8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteDisplayView.swift; sourceTree = "<group>"; };
 		8F6789D121A2922900537EB9 /* VoteTIEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTIEModel.swift; sourceTree = "<group>"; };
@@ -548,12 +552,11 @@
 		8F50AB0721916B3300DFC150 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F619B5421DCC6DF0057A179 /* displayView */,
 				8F50AB0521916B2E00DFC150 /* CBToast.swift */,
 				8F4F0BEF2192EF6800CBC033 /* ATPTopNaviView.swift */,
 				8F51EBFF2195577D00248F7E /* ATPAlertView.swift */,
 				8FF2500121A433E50064B41D /* SDCheckBoxView.swift */,
-				8FB204662193E56A00FDAF10 /* SDDisplayView.swift */,
-				8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */,
 				8FB2046E2193E6FE00FDAF10 /* SDGifView.swift */,
 				8FB204702193E71D00FDAF10 /* SDReceiptView.swift */,
 				8F94C4B121A2DEC300ECEDA7 /* ATPBaseView.swift */,
@@ -583,11 +586,22 @@
 			path = SmartDrop;
 			sourceTree = "<group>";
 		};
+		8F619B5421DCC6DF0057A179 /* displayView */ = {
+			isa = PBXGroup;
+			children = (
+				8F619B5221DCBA590057A179 /* FBDisplayView.swift */,
+				8FB204662193E56A00FDAF10 /* SDDisplayView.swift */,
+				8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */,
+			);
+			path = displayView;
+			sourceTree = "<group>";
+		};
 		8FE4FC6621902F2700FDC23D /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
 				8F50AB0721916B3300DFC150 /* Views */,
 				8F6C48E021902F0D007EF15C /* ATPSmartDropRender.swift */,
+				8F619B4A21DC9FB50057A179 /* ATPWKWebViewRenderVC.swift */,
 				8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */,
 				8F50AB522191882800DFC150 /* ATPDelegateVotingRender.swift */,
 			);
@@ -875,6 +889,7 @@
 			files = (
 				3E6F71D521392FEA007DD408 /* ATPConfig.swift in Sources */,
 				8FB204712193E71D00FDAF10 /* SDReceiptView.swift in Sources */,
+				8F619B4B21DC9FB50057A179 /* ATPWKWebViewRenderVC.swift in Sources */,
 				8F508815218B041A00AD22E5 /* ATPErrorSource.swift in Sources */,
 				3EFF2FDF21398EF2001CD174 /* ATPKit.swift in Sources */,
 				8F50AB632191884600DFC150 /* ATPErrors.swift in Sources */,
@@ -893,6 +908,7 @@
 				8F94C4B221A2DEC300ECEDA7 /* ATPBaseView.swift in Sources */,
 				BEF8C80B4299B922D794EFE2 /* BCDelegateAPI.swift in Sources */,
 				8F508813218AFF6600AD22E5 /* BCInteractManager.swift in Sources */,
+				8F619B5321DCBA590057A179 /* FBDisplayView.swift in Sources */,
 				8F50AB5E2191883D00DFC150 /* BCDVote.swift in Sources */,
 				8F6C48E121902F0D007EF15C /* ATPSmartDropRender.swift in Sources */,
 				BEF8C61FC4512DE4418F2B34 /* ATPConnectivity.swift in Sources */,
