@@ -171,7 +171,7 @@ import Foundation
                             }else if renderType == "in-wallet feedback" {
                                 let tieDic = resultDic["tie"] as! [String:Any]
                                 //                                print("Vote Dic = \(resultDic)")
-                                let webVC = ATPWKWebViewRenderVC()
+                                let webVC = ATPFeedbackRenderVC()
                                 if let config = self.bciConfig {
                                     webVC.setConfig(config: config)
                                 }else {

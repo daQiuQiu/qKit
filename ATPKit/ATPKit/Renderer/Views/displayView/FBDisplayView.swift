@@ -10,12 +10,51 @@ import UIKit
 import WebKit
 import JavaScriptCore
 
-class FBDisplayView: UIView,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler{
+class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     
     public typealias CheckClosure = (Bool) -> ()
     public var myCheckClosure:CheckClosure?
     var isSelected:Bool = false
+    var tfCount:Int = 0
+    var imageCellHeight:Float = 0
+    var displayArray:Array = [1]
     
+    public lazy var tableView: UITableView = {
+        let tableview = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.plain)
+        tableview.delegate = self
+        tableview.dataSource = self
+        tableview.estimatedRowHeight = 0
+        tableview.separatorStyle = UITableViewCellSeparatorStyle.none
+//        _tableview.estimatedRowHeight = 0;
+//        _tableview.estimatedSectionHeaderHeight = 0;
+//        _tableview.estimatedSectionFooterHeight = 0;
+//        _tableview.contentInset = UIEdgeInsetsMake(-1, 0, 0, 0);
+        
+        return tableview
+    }()
+    
+    public lazy var imageView: UIImageView = {
+        let imagev = UIImageView()
+        imagev.isUserInteractionEnabled = true
+        imagev.contentMode = UIViewContentMode.scaleAspectFit
+        imagev.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 380*kHeightRate)
+        if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
+            let image = UIImage.init(contentsOfFile: path)!
+            imagev.image = image
+        }else {
+            //            print("no path!!!")
+        }
+        return imagev
+    }()
+    
+    public lazy var addTFBtn:UIButton = {
+        let btn = UIButton()
+        btn.setTitle("新增", for: UIControlState.normal)
+        btn.addTarget(self, action: #selector(addTFAction), for: UIControlEvents.touchUpInside)
+        btn.layer.cornerRadius = 20
+    
+        return btn
+    }()
     
     public lazy var topLabel: UILabel = {
         let label = UILabel()
@@ -28,6 +67,15 @@ class FBDisplayView: UIView,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHan
         label.layer.shadowRadius = 10
         label.layer.shadowColor = UIColor.black.cgColor
         
+        return label
+    }()
+    
+    public lazy var tfTitleLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .white
+        label.textColor = kColorFromHex(rgbValue: 0x7A7A7A)
+        label.font = UIFont.systemFont(ofSize: 10*kWidthRate)
+        label.text = "请填写地址"
         return label
     }()
     
@@ -47,24 +95,6 @@ class FBDisplayView: UIView,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHan
         return view
     }()
     
-    lazy var displayWebview: WKWebView = {
-        let config = WKWebViewConfiguration()
-        let preference = WKPreferences()
-        preference.javaScriptEnabled = true
-        preference.javaScriptCanOpenWindowsAutomatically = true
-        config.preferences = preference
-        
-        config.processPool = WKProcessPool()
-        config.userContentController = WKUserContentController()
-        config.userContentController.add(self, name: "getTieStr")
-        
-        let webview = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight), configuration: config)
-        webview.navigationDelegate = self
-        webview.uiDelegate = self
-
-        return webview
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
@@ -77,8 +107,7 @@ class FBDisplayView: UIView,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHan
     }
     
     func setupUI() {
-        self.addSubview(self.displayWebview)
-        
+        self.addSubview(self.tableView)
         self.addSubview(self.bottomHoriLine)
         self.addSubview(self.topLabel)
         self.addSubview(self.horiLine)
@@ -97,69 +126,61 @@ class FBDisplayView: UIView,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHan
             make.left.right.equalTo(self)
             make.height.equalTo(1)
         }
-        self.displayWebview.snp.makeConstraints { (make) in
+        self.tableView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self)
             make.top.equalTo(self.topLabel.snp.bottom)
             make.bottom.equalTo(self)
         }
     }
     
-    public func startLoading() {
-        let request = URLRequest(url:URL(string: "http://192.168.20.113:5000")!)
-//        let request = URLRequest(url:URL(string: "http://www.baidu.com/")!)
-        displayWebview.load(request)
+    @objc func addTFAction() {
+        //计数+1
+        tfCount = tfCount + 1
+        let tfView = FBTextView()
+        tfView.isUserInteractionEnabled = true
+        tfView.tag = tfCount
+        
     }
     
-    func callJS() {
-//        self.displayWebview.evaluateJavaScript("getTieStr()") { (object, error) in
-//            print("obj = \(object), error = \(error)")
-//        }
+    public func setPostImage(url: String) {
+        var plimage:UIImage?
+        if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
+            let image = UIImage.init(contentsOfFile: path)!
+            plimage = image
+        }
         
-        let jscontext = displayWebview.value(forKeyPath: "documentView.webView.mainFrame.javaScriptContext") as! JSContext
-//        jscontext["getTieStr"] = { [unowned self] () -> () in
-//            print("in processing js context")
-//            return "aaaaa"
-//        }
-        jscontext.exceptionHandler = {context, exception in
-            if let exp = exception {
-                print("js exception = \(exp.toString())")
+        self.imageView.sd_setImage(with: URL(string: url), placeholderImage: plimage) { [unowned self] (image, error, _, _) in
+            if let dImage = image {
+                
+            }
+            if error != nil {
+                if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholderFail.png", ofType: nil) {
+                    let image = UIImage.init(contentsOfFile: path)!
+                    self.imageView.image = image
+                }
             }
         }
-        if let functionName = jscontext.objectForKeyedSubscript("getTieStr") {
-            if let fullname = functionName.call(withArguments: ["aaaa"]) {
-                print("result = \(fullname.toString())")
-            }
-        }
+    }
+    
+    //MARK:tableview datasource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    //MARK: tableview delegate
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+        
+        return cell
         
     }
     
-    //MARK: Webview delegate
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("navi finish")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        callJS()
-    }
-    
-    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        //处理跳转
-        print("creatNewWindow url = \(navigationAction.request)")
-        return nil
-    }
-    
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("web start")
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("web error = \(error.localizedDescription)")
-    }
-    
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        print("receive")
-        if (message.name == "getTieStr") {
-            
-            print("receive js TIE signal")
-        }
     }
 }
 

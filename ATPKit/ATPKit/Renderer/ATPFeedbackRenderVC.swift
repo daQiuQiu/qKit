@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ATPWKWebViewRenderVC: UIViewController,ATPTransactionCallBack {
+class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     
     var fromAddress:String?
     var contractAddress:String?
@@ -129,20 +129,22 @@ class ATPWKWebViewRenderVC: UIViewController,ATPTransactionCallBack {
             print("当前地址:\(address)")
             self.displayView.topLabel.text = "\(getI18NString(key: "address"))\(address)"
         }
-        self.displayView.startLoading()
-        if tieModel.question.count > 5 {
-            
-            self.receiptView.messageLabel.text = tieModel.message
-//            self.displayView.setTieModel(model: tieModel)
-            self.changeRenderState(state: SDRenderState.begin)
-            if tieModel.isInteracted == true {
-                print("INTO INTERACTED STATE")
-                self.isInteracted = true
-                self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControlState.normal)
-            }
-        }else {
-            print("TIE NOT VALID")
-        }
+        
+        print("hahaha = \(tieModel.placeholder)")
+        
+//        if tieModel.question.count > 5 {
+//
+//            self.receiptView.messageLabel.text = tieModel.message
+////            self.displayView.setTieModel(model: tieModel)
+//            self.changeRenderState(state: SDRenderState.begin)
+//            if tieModel.isInteracted == true {
+//                print("INTO INTERACTED STATE")
+//                self.isInteracted = true
+//                self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControlState.normal)
+//            }
+//        }else {
+//            print("TIE NOT VALID")
+//        }
     }
     
     private func sendTransaction(signedTransaction:String) {

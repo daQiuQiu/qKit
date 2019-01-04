@@ -15,6 +15,8 @@ import UIKit
     var optionsText: [String] = []
     var message: String = ""
     var question: String = ""
+    var placeholder: String = ""
+    var titletext: String = ""
     var isInteracted: Bool = false
     
     init(dic:[String:Any]) {
