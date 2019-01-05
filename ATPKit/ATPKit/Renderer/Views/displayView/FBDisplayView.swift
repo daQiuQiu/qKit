@@ -25,6 +25,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
         tableview.dataSource = self
         tableview.estimatedRowHeight = 0
         tableview.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "displaycell")
 //        _tableview.estimatedRowHeight = 0;
 //        _tableview.estimatedSectionHeaderHeight = 0;
 //        _tableview.estimatedSectionFooterHeight = 0;
@@ -151,7 +152,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
         
         self.imageView.sd_setImage(with: URL(string: url), placeholderImage: plimage) { [unowned self] (image, error, _, _) in
             if let dImage = image {
-                
+                imageCellHeight = 
             }
             if error != nil {
                 if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholderFail.png", ofType: nil) {
@@ -164,18 +165,33 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     
     //MARK:tableview datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return displayArray.count + 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 200*kWidthRate
+        }else {
+            return 50*kWidthRate
+        }
+    }
+    
     //MARK: tableview delegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
         
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+            return cell
+        }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+            return cell
+        }
+        
+        
         
     }
     
