@@ -107,6 +107,8 @@
 		8FB204672193E56A00FDAF10 /* SDDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB204662193E56A00FDAF10 /* SDDisplayView.swift */; };
 		8FB2046F2193E6FE00FDAF10 /* SDGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB2046E2193E6FE00FDAF10 /* SDGifView.swift */; };
 		8FB204712193E71D00FDAF10 /* SDReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB204702193E71D00FDAF10 /* SDReceiptView.swift */; };
+		8FD1D2F321E1133400162EF4 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1D2EC21E1133400162EF4 /* ImageTableViewCell.swift */; };
+		8FD1D2F521E1135400162EF4 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1D2F421E1135400162EF4 /* TextFieldTableViewCell.swift */; };
 		8FE4FC6F219066AD00FDC23D /* ATPExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FC6E219066AD00FDC23D /* ATPExtensions.swift */; };
 		8FE4FC71219073DE00FDC23D /* BCITransactionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FC70219073DE00FDC23D /* BCITransactionInfo.swift */; };
 		8FF2500221A433E50064B41D /* SDCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2500121A433E50064B41D /* SDCheckBoxView.swift */; };
@@ -274,6 +276,8 @@
 		8FB204662193E56A00FDAF10 /* SDDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDDisplayView.swift; sourceTree = "<group>"; };
 		8FB2046E2193E6FE00FDAF10 /* SDGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDGifView.swift; sourceTree = "<group>"; };
 		8FB204702193E71D00FDAF10 /* SDReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDReceiptView.swift; sourceTree = "<group>"; };
+		8FD1D2EC21E1133400162EF4 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		8FD1D2F421E1135400162EF4 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		8FE4FC6E219066AD00FDC23D /* ATPExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPExtensions.swift; sourceTree = "<group>"; };
 		8FE4FC70219073DE00FDC23D /* BCITransactionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCITransactionInfo.swift; sourceTree = "<group>"; };
 		8FF2500121A433E50064B41D /* SDCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCheckBoxView.swift; sourceTree = "<group>"; };
@@ -594,6 +598,8 @@
 		8F619B5421DCC6DF0057A179 /* displayView */ = {
 			isa = PBXGroup;
 			children = (
+				8FD1D2EC21E1133400162EF4 /* ImageTableViewCell.swift */,
+				8FD1D2F421E1135400162EF4 /* TextFieldTableViewCell.swift */,
 				8F619B5221DCBA590057A179 /* FBDisplayView.swift */,
 				8FB204662193E56A00FDAF10 /* SDDisplayView.swift */,
 				8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */,
@@ -902,6 +908,7 @@
 				8F50AB632191884600DFC150 /* ATPErrors.swift in Sources */,
 				8F47439B21DE49E500CB51A8 /* ATPJSContextModel.swift in Sources */,
 				8FE4FC6F219066AD00FDC23D /* ATPExtensions.swift in Sources */,
+				8FD1D2F521E1135400162EF4 /* TextFieldTableViewCell.swift in Sources */,
 				8FE4FC71219073DE00FDC23D /* BCITransactionInfo.swift in Sources */,
 				8F6789CE21A25DDC00537EB9 /* ATPVotingRenderVC.swift in Sources */,
 				8FB2046F2193E6FE00FDAF10 /* SDGifView.swift in Sources */,
@@ -926,6 +933,7 @@
 				8F6789D021A27E9D00537EB9 /* VoteDisplayView.swift in Sources */,
 				8F50AB532191882800DFC150 /* ATPDelegateVotingRender.swift in Sources */,
 				8FF2500221A433E50064B41D /* SDCheckBoxView.swift in Sources */,
+				8FD1D2F321E1133400162EF4 /* ImageTableViewCell.swift in Sources */,
 				3EFF2FD321397BA1001CD174 /* BCDVotingManager.swift in Sources */,
 				8F50AB5D2191883D00DFC150 /* BCDAccount.swift in Sources */,
 				8F50AAFD21913E8F00DFC150 /* BCIPayloadConfig.swift in Sources */,
@@ -1145,6 +1153,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ATPBuild/ATP_iOS_Build/atpkit_181128",
+					"$(PROJECT_DIR)/ATPKit",
 				);
 				INFOPLIST_FILE = ATPKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1194,6 +1203,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ATPBuild/ATP_iOS_Build/atpkit_181128",
+					"$(PROJECT_DIR)/ATPKit",
 				);
 				INFOPLIST_FILE = ATPKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

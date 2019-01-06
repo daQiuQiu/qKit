@@ -72,6 +72,9 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         self.automaticallyAdjustsScrollViewInsets = false
         let kit = ATPKit.sharedInstance.getBCinteractKit()
         kit?.transactionDelegate = self
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
@@ -132,19 +135,19 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         
         print("hahaha = \(tieModel.placeholder)")
         
-//        if tieModel.question.count > 5 {
-//
-//            self.receiptView.messageLabel.text = tieModel.message
-////            self.displayView.setTieModel(model: tieModel)
-//            self.changeRenderState(state: SDRenderState.begin)
-//            if tieModel.isInteracted == true {
-//                print("INTO INTERACTED STATE")
-//                self.isInteracted = true
-//                self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControlState.normal)
-//            }
-//        }else {
-//            print("TIE NOT VALID")
-//        }
+        if tieModel.creatives.count != 0 {
+           self.displayView.creativeURL = tieModel.creatives[0]
+        }
+        
+        self.receiptView.messageLabel.text = tieModel.message
+        //            self.displayView.setTieModel(model: tieModel)
+        self.changeRenderState(state: SDRenderState.begin)
+        if tieModel.isInteracted == true {
+            print("INTO INTERACTED STATE")
+            self.isInteracted = true
+            self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControlState.normal)
+        }
+        
     }
     
     private func sendTransaction(signedTransaction:String) {
@@ -293,5 +296,13 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     
     private func getI18NString(key:String) -> String {
         return Bundle.getATPLocalizedString(forkey: key, type: self.bciConfig?.language)
+    }
+    
+    @objc func hideKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    deinit {
+        print("fbRender dealloc")
     }
 }

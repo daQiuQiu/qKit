@@ -16,8 +16,10 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     public var myCheckClosure:CheckClosure?
     var isSelected:Bool = false
     var tfCount:Int = 0
-    var imageCellHeight:Float = 0
+    var imageCellHeight:CGFloat = 0
+    var maxTag:Int = 1
     var displayArray:Array = [1]
+    var creativeURL:String = ""
     
     public lazy var tableView: UITableView = {
         let tableview = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.plain)
@@ -25,28 +27,28 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
         tableview.dataSource = self
         tableview.estimatedRowHeight = 0
         tableview.separatorStyle = UITableViewCellSeparatorStyle.none
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "displaycell")
-//        _tableview.estimatedRowHeight = 0;
-//        _tableview.estimatedSectionHeaderHeight = 0;
+        
+        tableview.register(ImageTableViewCell.self, forCellReuseIdentifier: "imagecell")
+        tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "tfcell")
+        tableview.estimatedRowHeight = 0;
+        tableview.estimatedSectionHeaderHeight = 0;
 //        _tableview.estimatedSectionFooterHeight = 0;
-//        _tableview.contentInset = UIEdgeInsetsMake(-1, 0, 0, 0);
+        tableview.contentInset = UIEdgeInsetsMake(-1, 0, 0, 0);
+        tableview.showsVerticalScrollIndicator = true
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 60*kWidthRate))
+        view.backgroundColor = .red
+        view.isUserInteractionEnabled = true
+        view.addSubview(self.addTFBtn)
+        self.addTFBtn.snp.makeConstraints{(make) in
+            make.center.equalTo(view)
+            make.size.equalTo(CGSize(width: 60*kWidthRate, height: 40*kWidthRate))
+        }
+        tableview.tableFooterView = view
         
         return tableview
     }()
     
-    public lazy var imageView: UIImageView = {
-        let imagev = UIImageView()
-        imagev.isUserInteractionEnabled = true
-        imagev.contentMode = UIViewContentMode.scaleAspectFit
-        imagev.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 380*kHeightRate)
-        if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
-            let image = UIImage.init(contentsOfFile: path)!
-            imagev.image = image
-        }else {
-            //            print("no path!!!")
-        }
-        return imagev
-    }()
+    
     
     public lazy var addTFBtn:UIButton = {
         let btn = UIButton()
@@ -71,14 +73,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
         return label
     }()
     
-    public lazy var tfTitleLabel: UILabel = {
-        let label = UILabel()
-        label.backgroundColor = .white
-        label.textColor = kColorFromHex(rgbValue: 0x7A7A7A)
-        label.font = UIFont.systemFont(ofSize: 10*kWidthRate)
-        label.text = "请填写地址"
-        return label
-    }()
+    
     
     lazy var horiLine:UIView = {
         let view = UIView()
@@ -131,36 +126,34 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
             make.left.right.equalTo(self)
             make.top.equalTo(self.topLabel.snp.bottom)
             make.bottom.equalTo(self)
+            
         }
     }
     
     @objc func addTFAction() {
         //计数+1
-        tfCount = tfCount + 1
-        let tfView = FBTextView()
-        tfView.isUserInteractionEnabled = true
-        tfView.tag = tfCount
-        
+        let tag = maxTag + 1
+        maxTag = tag
+        self.displayArray.append(tag)
+        self.tableView.reloadData()
+    }
+    
+    func deleteCell(celltag:Int) {
+        for tag in 0..<self.displayArray.count {
+            print("array = \(self.displayArray) tag=\(tag)  celltag=\(celltag)")
+            let index = self.displayArray[tag] as Int
+                if index == celltag {
+                    self.displayArray.remove(at: tag)
+                    self.tableView.reloadData()
+                    break
+                }
+            
+            
+        }
     }
     
     public func setPostImage(url: String) {
-        var plimage:UIImage?
-        if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
-            let image = UIImage.init(contentsOfFile: path)!
-            plimage = image
-        }
         
-        self.imageView.sd_setImage(with: URL(string: url), placeholderImage: plimage) { [unowned self] (image, error, _, _) in
-            if let dImage = image {
-                imageCellHeight = 
-            }
-            if error != nil {
-                if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholderFail.png", ofType: nil) {
-                    let image = UIImage.init(contentsOfFile: path)!
-                    self.imageView.image = image
-                }
-            }
-        }
     }
     
     //MARK:tableview datasource
@@ -174,29 +167,68 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 200*kWidthRate
+            if imageCellHeight != 0 {
+                return imageCellHeight
+            }else {
+               return 200*kWidthRate
+            }
+            
         }else {
-            return 50*kWidthRate
+            return 60*kWidthRate
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
     }
     
     //MARK: tableview delegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "imagecell", for: indexPath) as! ImageTableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            var plimage:UIImage?
+            if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
+                let image = UIImage.init(contentsOfFile: path)!
+                plimage = image
+            }
+            cell.imgView.sd_setImage(with: URL(string: creativeURL), placeholderImage: plimage) { [unowned self] (image, error, _, _) in
+                if let dImage = image {//更新高度
+                    if self.imageCellHeight != (kScreenWidth*(dImage.size.height/dImage.size.width)+50*kWidthRate) {
+                        self.imageCellHeight = kScreenWidth*(dImage.size.height/dImage.size.width)+50*kWidthRate
+                        print("imageCellHeight = \(self.imageCellHeight)")
+                        self.tableView.reloadData()
+                    }
+                    
+                }
+                if error != nil {//图片加载失败
+                    if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholderFail.png", ofType: nil) {
+                        let image = UIImage.init(contentsOfFile: path)!
+                        cell.imgView.image = image
+                    }
+                }
+            }
+            
             return cell
         }else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CellID", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tfcell", for: indexPath) as! TextFieldTableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            cell.tag = self.displayArray[indexPath.row-1]
+            cell.myDeleteClosure = { [unowned self] (cellTag) -> () in
+                self.deleteCell(celltag: cellTag)
+            }
+            
             return cell
         }
-        
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    deinit {
+        print("fbDisplayView dealloc")
     }
 }
 
