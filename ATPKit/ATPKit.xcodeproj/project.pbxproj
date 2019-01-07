@@ -94,6 +94,7 @@
 		8F534AA321ABCD050043AD34 /* ATPKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 3EA449B5213832C200CE2BB9 /* ATPKit.framework */; };
 		8F5A790821A6E81100FAFF5E /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F5A790721A6E81100FAFF5E /* success.png */; };
 		8F5CB6DB218BED2900650EE1 /* BCInteractKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CB6DA218BED2900650EE1 /* BCInteractKit.swift */; };
+		8F5FDCDF21E2FBB400C930B1 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F5FDCD821E2FBB400C930B1 /* delete.png */; };
 		8F619B4B21DC9FB50057A179 /* ATPFeedbackRenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F619B4A21DC9FB50057A179 /* ATPFeedbackRenderVC.swift */; };
 		8F619B5321DCBA590057A179 /* FBDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F619B5221DCBA590057A179 /* FBDisplayView.swift */; };
 		8F6789CE21A25DDC00537EB9 /* ATPVotingRenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */; };
@@ -263,6 +264,7 @@
 		8F51EC1E2195966D00248F7E /* atplogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atplogo.png; sourceTree = "<group>"; };
 		8F5A790721A6E81100FAFF5E /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
 		8F5CB6DA218BED2900650EE1 /* BCInteractKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCInteractKit.swift; sourceTree = "<group>"; };
+		8F5FDCD821E2FBB400C930B1 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		8F619B4A21DC9FB50057A179 /* ATPFeedbackRenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPFeedbackRenderVC.swift; sourceTree = "<group>"; };
 		8F619B5221DCBA590057A179 /* FBDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDisplayView.swift; sourceTree = "<group>"; };
 		8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPVotingRenderVC.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				8F354FCB21855094003AD468 /* Localizable.strings */,
+				8F5FDCD821E2FBB400C930B1 /* delete.png */,
 				8F5A790721A6E81100FAFF5E /* success.png */,
 				8F51EC1E2195966D00248F7E /* atplogo.png */,
 				8F51EC1D2195966D00248F7E /* atptitlelogo.png */,
@@ -796,6 +799,7 @@
 				8F4E846421A82BAD0075DAAA /* placeholder.png in Resources */,
 				8F51EC1F2195966D00248F7E /* atptitlelogo.png in Resources */,
 				8F94C48A21A2B10100ECEDA7 /* singleBoxSelected.png in Resources */,
+				8F5FDCDF21E2FBB400C930B1 /* delete.png in Resources */,
 				8F354FC921855094003AD468 /* Localizable.strings in Resources */,
 				8F51EC1A2195963F00248F7E /* checkboxUnSelected.png in Resources */,
 				8F51EC202195966D00248F7E /* atplogo.png in Resources */,

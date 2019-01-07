@@ -15,12 +15,11 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     var contractAddress:String?
     var state:SDRenderState = SDRenderState.begin
     var transHash:String = ""
-    var isAgree:Bool = false
     var isOnchian:Bool = false
     var isInteracted:Bool = false
     var counting:Int = 0
     var bciConfig:BCIConfig?
-    var selectionText: String?
+    var textfieldText: String = ""
     
     
     lazy var naviView:ATPTopNaviView = {
@@ -75,11 +74,14 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         // Do any additional setup after loading the view.
     }
     
     func setupUI() {
-        self.naviView.titleLabel.text = self.getI18NString(key: "ATP-Webview")
+        self.naviView.titleLabel.text = self.getI18NString(key: "ATP链上互动")
         
         self.view.addSubview(self.submitBtn)
         self.view.addSubview(self.displayView)
@@ -133,7 +135,10 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
             self.displayView.topLabel.text = "\(getI18NString(key: "address"))\(address)"
         }
         
-        print("hahaha = \(tieModel.placeholder)")
+        self.displayView.placeholder = tieModel.placeholder
+        self.displayView.titletext = tieModel.titletext
+        self.displayView.addTFBtn.setTitle(self.getI18NString(key: "addmore"), for: UIControlState.normal)
+        
         
         if tieModel.creatives.count != 0 {
            self.displayView.creativeURL = tieModel.creatives[0]
@@ -144,6 +149,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         self.changeRenderState(state: SDRenderState.begin)
         if tieModel.isInteracted == true {
             print("INTO INTERACTED STATE")
+            self.displayView.displayArray = []
             self.isInteracted = true
             self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControlState.normal)
         }
@@ -235,12 +241,14 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         self.alertView.isHidden = true
         let kit = ATPKit.sharedInstance.getBCinteractKit()
         let tranInfo = BCITransactionInfo()
+        
+        print("text need to be onchain = \(self.textfieldText)")
+        
         if let conAddr = contractAddress {
             //            tranInfo.setupData(contractAddress: conAddr, functionName: "interact", args: ["1"])
             if let fromAddr = fromAddress {
-                if self.selectionText != nil {
-                    print("selectedText = \(self.selectionText)")
-                    tranInfo.setupData(contractAddress: conAddr, functionName: "interact", fromAddress: fromAddr, args: [self.selectionText!])
+                if self.textfieldText.count != 0 {
+                    tranInfo.setupData(contractAddress: conAddr, functionName: "interact", fromAddress: fromAddr, args: [self.textfieldText])
                     kit?.popoutTransaction(transactionInfo: tranInfo)
                 }else {
                     CBToast.showToastAction(message: "option text error")
@@ -260,11 +268,30 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
             if isInteracted {
                 self.checkReceipt()
             }else {
-                if isAgree {
-                    self.alertView.isHidden = false
-                }else {
-                    CBToast.showToastAction(message: getI18NString(key: "请完成选项再提交") as NSString)
+                for index in 0..<self.displayView.indexArray.count {//遍历子页面
+                    let savedIndexPath = self.displayView.indexArray[index]
+                    let cell = self.displayView.tableView.cellForRow(at: savedIndexPath) as! TextFieldTableViewCell
+                    if let str = cell.tfView.textfield.text {
+                        if str.count != 0 {
+                            if textfieldText.count != 0 {
+                                self.textfieldText = self.textfieldText + "," + str
+                            }else {
+                                self.textfieldText = str
+                            }
+                        }else {
+                            CBToast.showToastAction(message: self.getI18NString(key: "Please fill blanks") as NSString)
+                            self.textfieldText = ""
+                            return
+                        }
+                    }
                 }
+                
+                if textfieldText.count == 0 {//为空 return
+                    CBToast.showToastAction(message: self.getI18NString(key: "Please fill blanks") as NSString)
+                    return
+                }
+                
+                self.alertView.isHidden = false
             }
             
         }
@@ -302,7 +329,29 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         self.view.endEditing(true)
     }
     
+    //MARK: KEYBOARD Oberserver
+    @objc func keyboardWillShow(_ notification: Notification) {
+        DispatchQueue.main.async {
+            let user_info = notification.userInfo
+            let keyboardRect = (user_info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            
+            let y = keyboardRect.size.height
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view.center = CGPoint.init(x: kScreenWidth/2, y: self.view.center.y - y)
+            })
+            
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification:Notification) {
+        DispatchQueue.main.async {
+            self.view.center = CGPoint.init(x: kScreenWidth/2, y: kScreenHeight/2)
+        }
+    }
+    
     deinit {
         print("fbRender dealloc")
+        NotificationCenter.default.removeObserver(self)
     }
 }

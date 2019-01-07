@@ -27,7 +27,7 @@ class ImageTableViewCell: UITableViewCell {
         let label = UILabel()
         label.backgroundColor = .white
         label.textColor = kColorFromHex(rgbValue: 0x7A7A7A)
-        label.font = UIFont.systemFont(ofSize: 20*kWidthRate)
+        label.font = UIFont.systemFont(ofSize: 16*kWidthRate)
         label.text = "请填写地址"
         return label
     }()
@@ -54,8 +54,8 @@ class ImageTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
-        self.addSubview(imgView)
-        self.addSubview(tfTitleLabel)
+        self.contentView.addSubview(imgView)
+        self.contentView.addSubview(tfTitleLabel)
         
         self.imgView.snp.makeConstraints { (make) in
             make.top.equalTo(self)
@@ -64,8 +64,8 @@ class ImageTableViewCell: UITableViewCell {
             make.bottom.equalTo(self).offset(-50*kWidthRate)
         }
         self.tfTitleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(self.imgView)
-            make.top.equalTo(self.imgView.snp.bottom).offset(0*kWidthRate)
+            make.left.equalTo(self.imgView).offset(10*kWidthRate)
+            make.top.equalTo(self.imgView.snp.bottom).offset(30*kWidthRate)
         }
     }
 

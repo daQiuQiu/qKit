@@ -12,6 +12,7 @@ import UIKit
 class TextFieldTableViewCell: UITableViewCell {
     public typealias DeleteClosure = (Int) -> ()
     public var myDeleteClosure:DeleteClosure?
+    public var placeholder:String = "Address"
     
     lazy var tfView:FBTextView = {
         let view = FBTextView()
@@ -40,16 +41,25 @@ class TextFieldTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
-        self.addSubview(self.tfView)
+        self.contentView.addSubview(self.tfView)
         self.tfView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalTo(self)
         }
         self.tfView.deleteBtn.addTarget(self, action: #selector(deleteAction), for: UIControlEvents.touchUpInside)
+        
     }
     
     @objc func deleteAction() {
         if let closeure = myDeleteClosure {
             closeure(self.tag)
+        }
+    }
+    
+    public func tfCellSetup() {
+        if self.tag == 1 {
+           self.tfView.hideDeleteBtn()
+        }else {
+            self.tfView.showDeleteBtn()
         }
     }
 
