@@ -19,7 +19,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     var isInteracted:Bool = false
     var counting:Int = 0
     var bciConfig:BCIConfig?
-    var textfieldText: String = ""
+    var textfieldText: String = "" //多行上链数据
     
     
     lazy var naviView:ATPTopNaviView = {
@@ -136,7 +136,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         }
         
         self.displayView.placeholder = tieModel.placeholder
-        self.displayView.titletext = tieModel.titletext
+        self.displayView.titletext = tieModel.titleText
         self.displayView.addTFBtn.setTitle(self.getI18NString(key: "addmore"), for: UIControlState.normal)
         
         
@@ -150,6 +150,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         if tieModel.isInteracted == true {
             print("INTO INTERACTED STATE")
             self.displayView.displayArray = []
+            self.displayView.addTFBtn.isHidden = true
             self.isInteracted = true
             self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControlState.normal)
         }
@@ -268,9 +269,9 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
             if isInteracted {
                 self.checkReceipt()
             }else {
-                for index in 0..<self.displayView.indexArray.count {//遍历子页面
-                    let savedIndexPath = self.displayView.indexArray[index]
-                    let cell = self.displayView.tableView.cellForRow(at: savedIndexPath) as! TextFieldTableViewCell
+                self.textfieldText = ""
+                for index in 0..<self.displayView.displayArray.count {//遍历子页面
+                    let cell = self.displayView.tableView.cellForRow(at: IndexPath(row: index+1, section: 0)) as! TextFieldTableViewCell
                     if let str = cell.tfView.textfield.text {
                         if str.count != 0 {
                             if textfieldText.count != 0 {
@@ -291,6 +292,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
                     return
                 }
                 
+                print("onchain value = \(self.textfieldText)")
                 self.alertView.isHidden = false
             }
             

@@ -17,6 +17,8 @@ class FBTextView: UIView {
         tf.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         tf.leftViewMode = UITextFieldViewMode.always
         tf.layer.cornerRadius = 6*kWidthRate
+        tf.autocorrectionType = UITextAutocorrectionType.no
+        tf.autocapitalizationType = UITextAutocapitalizationType.none
         return tf;
     }()
     

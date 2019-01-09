@@ -16,7 +16,7 @@ import UIKit
     var message: String = ""
     var question: String = ""
     var placeholder: String = ""
-    var titletext: String = ""
+    var titleText: String = ""
     var isInteracted: Bool = false
     
     init(dic:[String:Any]) {

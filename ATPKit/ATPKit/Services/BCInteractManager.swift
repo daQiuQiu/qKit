@@ -34,7 +34,7 @@ public class BCInteractManager {
             let functions:NSDictionary = ["function":"getTIE",
                                           "args":"\(args)"]
             
-            let dic:NSDictionary = ["from":"n1Z6SbjLuAEXfhX1UJvXT6BB5osWYxVg3F3",
+            let dic:NSDictionary = ["from":fromAddress,
                                     "to":toAddress,
                                     "value":"0",
                                     "gasPrice":"1000000",
@@ -45,7 +45,7 @@ public class BCInteractManager {
                 //            print("receive from contract:\(result!)")
                 let dataDic = result as! [String:Any]
                 let resultDic = dataDic["result"] as? [String:Any]
-                print("resultDIC = \(result!)")
+                print("getTIE resultDIC = \(result!)")
                 if let parseDic = self.dataParseForTIE(tie: resultDic as Any) {
                     if let errMsg = parseDic["error"] as? String {
                         failure(errMsg)

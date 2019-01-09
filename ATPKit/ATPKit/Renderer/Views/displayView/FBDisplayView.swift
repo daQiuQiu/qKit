@@ -23,8 +23,6 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     var placeholder:String = ""
     var titletext:String = ""
     
-    public var indexArray = [IndexPath]()
-    
     public lazy var tableView: UITableView = {
         let tableview = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.plain)
         tableview.delegate = self
@@ -36,7 +34,6 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
         tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "tfcell")
         tableview.estimatedRowHeight = 0;
         tableview.estimatedSectionHeaderHeight = 0;
-//        _tableview.estimatedSectionFooterHeight = 0;
         tableview.contentInset = UIEdgeInsetsMake(-1, 0, 0, 0);
         tableview.showsVerticalScrollIndicator = true
         let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 55*kWidthRate))
@@ -57,7 +54,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     public lazy var addTFBtn:UIButton = {
         let btn = UIButton()
         btn.backgroundColor = kColorFromHex(rgbValue: 0x007AFF)
-        btn.setTitle("新增", for: UIControlState.normal)
+//        btn.setTitle("新增", for: UIControlState.normal)
         btn.addTarget(self, action: #selector(addTFAction), for: UIControlEvents.touchUpInside)
         btn.layer.cornerRadius = 6*kWidthRate
     
@@ -137,8 +134,6 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     //添加cell
     @objc func addTFAction() {
         //计数+1
-        
-        self.indexArray = [IndexPath]()
         let tag = maxTag + 1
         maxTag = tag
         self.displayArray.append(tag)
@@ -159,7 +154,6 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
                         maxTag = maxTag - 1
                     }
                     self.displayArray.remove(at: tag)
-                    self.indexArray = [IndexPath]()
                     if self.displayArray.count == 1 {
                         maxTag = 1
                     }
@@ -202,11 +196,16 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     
     //MARK: tableview delegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print("cell for row")
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "imagecell", for: indexPath) as! ImageTableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.none
-            cell.tfTitleLabel.text = titletext
+            if self.displayArray.count > 0 {
+                cell.tfTitleLabel.text = titletext
+            }else {
+                cell.tfTitleLabel.text = ""
+            }
+            
             var plimage:UIImage?
             if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
                 let image = UIImage.init(contentsOfFile: path)!
@@ -219,7 +218,6 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
                         print("imageCellHeight = \(self.imageCellHeight)")
                         self.tableView.reloadData()
                     }
-                    
                 }
                 if error != nil {//图片加载失败
                     if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholderFail.png", ofType: nil) {
@@ -232,8 +230,8 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "tfcell", for: indexPath) as! TextFieldTableViewCell
-            self.indexArray.append(indexPath)
-            print("indexPath = \(self.indexArray)")
+//            self.indexArray.append(indexPath)
+//            print("indexPath = \(self.indexArray)")
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             cell.tag = self.displayArray[indexPath.row-1]
             let plStr = String(format: "%@%ld", arguments: [placeholder,cell.tag])

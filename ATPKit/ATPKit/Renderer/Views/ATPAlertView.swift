@@ -11,6 +11,7 @@ import UIKit
 class ATPAlertView: ATPBaseView {
     public typealias ConfirmClosure = () -> ()
     public var confirmClosure:ConfirmClosure?
+    public var cancelClosure:ConfirmClosure?
     //MARK:Variables
     lazy var backBlurView: UIVisualEffectView = {
         let blur = UIBlurEffect(style: .dark)
@@ -170,6 +171,9 @@ class ATPAlertView: ATPBaseView {
     
     @objc func cancelAction() {
         self.isHidden = true
+        if let cancelclosure = self.cancelClosure {
+            cancelclosure()
+        }
     }
     
     @objc func confirmAction() {
