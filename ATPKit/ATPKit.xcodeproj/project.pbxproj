@@ -666,6 +666,7 @@
 				3EA449B1213832C200CE2BB9 /* Frameworks */,
 				3EA449B2213832C200CE2BB9 /* Headers */,
 				3EA449B3213832C200CE2BB9 /* Resources */,
+				8F5300E221E75F2E00DA9FCA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -847,6 +848,23 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATPKitTests/Pods-ATPKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8F5300E221E75F2E00DA9FCA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nRELEASE_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-release\nWORKSPACE_NAME=${PROJECT_NAME}.xcworkspace\nBUILD_FOLDER=${PROJECT_DIR}/ATPBuild/ATP_iOS_Release\nBUILD_TIME=`date \"+%y%m%d\"`\n# make sure the output directory exists\nmkdir -p \"${RELEASE_OUTPUTFOLDER}\"\nmkdir -p \"${BUILD_FOLDER}/atpkit_release_${BUILD_TIME}\"\n#Step 1. Copy to Project Dir\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${BUILD_FOLDER}/atpkit_release_${BUILD_TIME}\"\n# Step 6. zip framework\ncd \"${PROJECT_DIR}/ATPBuild/ATP_iOS_Release\"\nzip -r \"ATP_iOS_release_${BUILD_TIME}.zip\" \"atpkit_release_${BUILD_TIME}\"\n#latest version\nzip -r \"ATP_iOS_release_latest.zip\" \"atpkit_release_${BUILD_TIME}\"\nrm -rf \"${PROJECT_DIR}/ATPBuild/ATP_iOS_Release/atpkit_release_${BUILD_TIME}\"\n# Step 7. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}/ATPBuild\"\n";
+		};
 		8F86FB1F2175A38000CC315D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -858,7 +876,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nWORKSPACE_NAME=${PROJECT_NAME}.xcworkspace\nBUILD_FOLDER=${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\nBUILD_TIME=`date \"+%y%m%d\"`\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n# Step 1. Build Device and Simulator versions\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphoneos ONLY_ACTIVE_ARCH=NO   BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n##Step 5. Convenience step to copy the framework to the project's directory\n#cp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n## Step 6. zip framework\n#cd \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\"\n#zip -r \"ATP_iOS_${BUILD_TIME}.zip\" \"atpkit_${BUILD_TIME}\"\n##latest version\n#zip -r \"ATP_iOS_latest.zip\" \"atpkit_${BUILD_TIME}\"\n#rm -rf \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK/atpkit_${BUILD_TIME}\"\n## Step 7. Convenience step to open the project's directory in Finder\n#open \"${PROJECT_DIR}/ATPBuild\"\n\n\n";
+			shellScript = "#!/bin/sh\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nWORKSPACE_NAME=${PROJECT_NAME}.xcworkspace\nBUILD_FOLDER=${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\nBUILD_TIME=`date \"+%y%m%d\"`\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n# Step 1. Build Device and Simulator versions\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphoneos ONLY_ACTIVE_ARCH=NO   BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n#Step 5. Convenience step to copy the framework to the project's directory\n#cp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n# Step 6. zip framework\n#cd \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\"\n#zip -r \"ATP_iOS_${BUILD_TIME}.zip\" \"atpkit_${BUILD_TIME}\"\n#latest version\n#zip -r \"ATP_iOS_latest.zip\" \"atpkit_${BUILD_TIME}\"\nrm -rf \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK/atpkit_${BUILD_TIME}\"\n# Step 7. Convenience step to open the project's directory in Finder\n#open \"${PROJECT_DIR}/ATPBuild\"\n\n\n";
 		};
 		B11B0F69C29D834A7D83111B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

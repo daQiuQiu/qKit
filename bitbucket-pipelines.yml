@@ -19,3 +19,13 @@ pipelines:
             - ls
             - aws s3 cp ATP_iOS_SDK s3://releases.atlasp.io/sdk/SDK-IOS/ --recursive
             
+    - step:
+        name: UPLOAD Release SDK TO AWS S3
+        image: atlassian/pipelines-awscli
+        trigger: manual
+        script:  
+            ##########  UPLOAD SDK TO AWS S3 ##########
+            - ls
+            - cd ATPKit/ATPBuild
+            - ls
+            - aws s3 cp ATP_iOS_Release s3://releases.atlasp.io/sdk/SDK-IOS/ --recursive
