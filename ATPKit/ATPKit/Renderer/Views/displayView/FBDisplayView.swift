@@ -22,6 +22,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     var creativeURL:String = ""
     var placeholder:String = ""
     var titletext:String = ""
+    public var textArray:[String] = [""]
     
     public lazy var tableView: UITableView = {
         let tableview = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.plain)
@@ -31,7 +32,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
         tableview.separatorStyle = UITableViewCellSeparatorStyle.none
         
         tableview.register(ImageTableViewCell.self, forCellReuseIdentifier: "imagecell")
-        tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "tfcell")
+        //        tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "tfcell")
         tableview.estimatedRowHeight = 0;
         tableview.estimatedSectionHeaderHeight = 0;
         tableview.contentInset = UIEdgeInsetsMake(-1, 0, 0, 0);
@@ -54,10 +55,10 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     public lazy var addTFBtn:UIButton = {
         let btn = UIButton()
         btn.backgroundColor = kColorFromHex(rgbValue: 0x007AFF)
-//        btn.setTitle("新增", for: UIControlState.normal)
+        //        btn.setTitle("新增", for: UIControlState.normal)
         btn.addTarget(self, action: #selector(addTFAction), for: UIControlEvents.touchUpInside)
         btn.layer.cornerRadius = 6*kWidthRate
-    
+        
         return btn
     }()
     
@@ -134,43 +135,53 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     //添加cell
     @objc func addTFAction() {
         //计数+1
+        //        print("delete cell id = \(celltag)")
         let tag = maxTag + 1
         maxTag = tag
         self.displayArray.append(tag)
+        self.textArray.append("")
         self.tableView.reloadData()
         
         if self.displayArray.count >= 10 {
-            self.addTFBtn.isEnabled = false
-            self.addTFBtn.backgroundColor = UIColor.lightGray
-            return
+            self.addTFBtn.isHidden = true
+            //            return
         }
     }
     //删除cell
     func deleteCell(celltag:Int) {
-        for tag in 0..<self.displayArray.count {
-            let index = self.displayArray[tag] as Int
-                if index == celltag {
-                    if celltag == maxTag {
-                        maxTag = maxTag - 1
-                    }
-                    self.displayArray.remove(at: tag)
-                    if self.displayArray.count == 1 {
-                        maxTag = 1
-                    }
-                    self.tableView.reloadData()
-                    break
-                }
+        print("delete cell id = \(celltag)")
+        self.displayArray.remove(at: (celltag-1))
+        
+        var disMax = 1
+        for index in 0..<self.displayArray.count {
+            let disIndex = self.displayArray[index]
+            if disMax < disIndex {
+                disMax = disIndex
+            }
         }
+        
+        maxTag = disMax
+        
+        if self.displayArray.count == 1 {
+            maxTag = 1
+        }
+        if self.textArray.count >= celltag {
+            self.textArray.remove(at: (celltag-1))
+        }else {
+            print("NOT DELETED!")
+        }
+        
+        self.tableView.reloadData()
+        
         if self.displayArray.count < 10 {
-            self.addTFBtn.isEnabled = true
-            self.addTFBtn.backgroundColor = kColorFromHex(rgbValue: 0x007AFF)
-            return
+            self.addTFBtn.isHidden = false
+            
         }
     }
     
     //MARK:tableview datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayArray.count + 1
+        return (displayArray.count + 1)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -182,7 +193,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
             if imageCellHeight != 0 {
                 return imageCellHeight
             }else {
-               return 200*kWidthRate
+                return 200*kWidthRate
             }
             
         }else {
@@ -229,20 +240,31 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
             
             return cell
         }else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "tfcell", for: indexPath) as! TextFieldTableViewCell
-//            self.indexArray.append(indexPath)
-//            print("indexPath = \(self.indexArray)")
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
-            cell.tag = self.displayArray[indexPath.row-1]
-            let plStr = String(format: "%@%ld", arguments: [placeholder,cell.tag])
-            cell.tfView.textfield.attributedPlaceholder = NSAttributedString.init(string:plStr, attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 14*kWidthRate)])
-            
-            cell.tfCellSetup()
-            cell.myDeleteClosure = { [unowned self] (cellTag) -> () in
-                self.deleteCell(celltag: cellTag)
+            print("index path = \(indexPath.row) display == \(self.displayArray)")
+            let cellidentifier = "tfcell - \(indexPath.row)"
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellidentifier) as? TextFieldTableViewCell
+            if cell == nil {
+                cell = TextFieldTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: cellidentifier)
             }
             
-            return cell
+            cell!.selectionStyle = UITableViewCellSelectionStyle.none
+            cell!.tag = indexPath.row
+            let plStr = String(format: "%@%ld", arguments: [placeholder,self.displayArray[indexPath.row - 1]])
+            cell!.tfView.textfield.text = self.textArray[indexPath.row - 1]
+            cell!.tfView.textfield.attributedPlaceholder = NSAttributedString.init(string:plStr, attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 14*kWidthRate)])
+            cell!.tfCellSetup()
+            cell!.myDeleteClosure = { [unowned self] (cellTag) -> () in
+                self.deleteCell(celltag: cellTag)
+            }
+            cell!.myTextClosure = { [unowned self] (tag, text) -> () in
+                print("cell tag = \(tag) || text = \(text)")
+                if self.textArray.count >= tag {
+                    self.textArray.replaceSubrange((tag-1)...(tag-1), with: [text])
+                }else {
+                    self.textArray.append(text)
+                }
+            }
+            return cell!
         }
     }
     

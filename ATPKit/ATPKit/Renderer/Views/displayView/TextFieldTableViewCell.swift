@@ -9,14 +9,17 @@
 import UIKit
 
 
-class TextFieldTableViewCell: UITableViewCell {
+class TextFieldTableViewCell: UITableViewCell,UITextFieldDelegate {
     public typealias DeleteClosure = (Int) -> ()
+    public typealias TextClosure = (Int,String) -> ()
     public var myDeleteClosure:DeleteClosure?
+    public var myTextClosure:TextClosure?
     public var placeholder:String = "Address"
     
     lazy var tfView:FBTextView = {
         let view = FBTextView()
-        
+        view.textfield.delegate = self
+        view.textfield.addTarget(self, action: #selector(textfieldDidChange(_:)), for: UIControlEvents.editingChanged)
         return view
     }()
 
@@ -61,6 +64,25 @@ class TextFieldTableViewCell: UITableViewCell {
         }else {
             self.tfView.showDeleteBtn()
         }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("end")
+        
+    }
+    
+    @objc func textfieldDidChange(_ textField: UITextField) {
+        print("tf change = \(textField.text)")
+        if let text = textField.text {
+            if let textClosure = myTextClosure {
+                textClosure(self.tag,text)
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
 }

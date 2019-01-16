@@ -28,7 +28,9 @@ class ImageTableViewCell: UITableViewCell {
         label.backgroundColor = .white
         label.textColor = kColorFromHex(rgbValue: 0x7A7A7A)
         label.font = UIFont.systemFont(ofSize: 16*kWidthRate)
-        label.text = "请填写地址"
+        label.numberOfLines = 0
+        label.sizeToFit()
+        
         return label
     }()
 
@@ -65,7 +67,8 @@ class ImageTableViewCell: UITableViewCell {
         }
         self.tfTitleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self.imgView).offset(10*kWidthRate)
-            make.top.equalTo(self.imgView.snp.bottom).offset(30*kWidthRate)
+            make.bottom.equalTo(self)
+            make.right.equalTo(self.imgView).offset(-10*kWidthRate)
         }
     }
 

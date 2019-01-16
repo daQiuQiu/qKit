@@ -80,6 +80,10 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.endEditing(true)
+    }
+    
     func setupUI() {
         self.naviView.titleLabel.text = self.getI18NString(key: "ATP链上互动")
         
@@ -141,7 +145,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         
         
         if tieModel.creatives.count != 0 {
-           self.displayView.creativeURL = tieModel.creatives[0]
+            self.displayView.creativeURL = tieModel.creatives[0]
         }
         
         self.receiptView.messageLabel.text = tieModel.message
@@ -262,6 +266,8 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     }
     
     @objc func showConfirmView() {
+        //        self.displayView.endEditing(true)
+        self.view.endEditing(true)
         print("state = \(self.state.rawValue);interacted = \(isInteracted)")
         if self.state == SDRenderState.receipt {
             self.closeAction()
@@ -269,27 +275,27 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
             if isInteracted {
                 self.checkReceipt()
             }else {
-                self.textfieldText = ""
-                for index in 0..<self.displayView.displayArray.count {//遍历子页面
-                    let cell = self.displayView.tableView.cellForRow(at: IndexPath(row: index+1, section: 0)) as! TextFieldTableViewCell
-                    if let str = cell.tfView.textfield.text {
-                        if str.count != 0 {
-                            if textfieldText.count != 0 {
-                                self.textfieldText = self.textfieldText + "," + str
-                            }else {
-                                self.textfieldText = str
-                            }
-                        }else {
-                            CBToast.showToastAction(message: self.getI18NString(key: "Please fill blanks") as NSString)
-                            self.textfieldText = ""
-                            return
-                        }
-                    }
-                }
-                
-                if textfieldText.count == 0 {//为空 return
+                if self.displayView.textArray.count == 0 {
                     CBToast.showToastAction(message: self.getI18NString(key: "Please fill blanks") as NSString)
                     return
+                }
+                
+                if self.displayView.displayArray.count != self.displayView.textArray.count {
+                    CBToast.showToastAction(message: self.getI18NString(key: "Please fill blanks") as NSString)
+                    return
+                }
+                self.textfieldText = ""
+                for index in 0..<self.displayView.textArray.count {//遍历子页面
+                    let str = self.displayView.textArray[index]
+                    if str.count == 0 {
+                        CBToast.showToastAction(message: self.getI18NString(key: "Please fill blanks") as NSString)
+                        return
+                    }
+                    if textfieldText.count != 0 {
+                        self.textfieldText = self.textfieldText + "," + str
+                    }else {
+                        self.textfieldText = str
+                    }
                 }
                 
                 print("onchain value = \(self.textfieldText)")
@@ -300,6 +306,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     }
     
     @objc func closeAction() {
+        self.view.endEditing(true)
         let window = UIApplication.shared.keyWindow!
         let transition = CATransition()
         transition.duration = 0.4
@@ -333,22 +340,26 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     
     //MARK: KEYBOARD Oberserver
     @objc func keyboardWillShow(_ notification: Notification) {
+        print("keyboard show")
         DispatchQueue.main.async {
+            
             let user_info = notification.userInfo
             let keyboardRect = (user_info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
             
             let y = keyboardRect.size.height
-            
-            UIView.animate(withDuration: 0.25, animations: {
-                self.view.center = CGPoint.init(x: kScreenWidth/2, y: self.view.center.y - y)
+            UIView.animate(withDuration: 0.35, animations: {
+                self.view.frame.origin = CGPoint(x: 0, y: -y)
             })
             
         }
     }
     
     @objc func keyboardWillHide(_ notification:Notification) {
+        print("keyboard hide")
         DispatchQueue.main.async {
-            self.view.center = CGPoint.init(x: kScreenWidth/2, y: kScreenHeight/2)
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.frame.origin = CGPoint(x: 0, y: 0)
+            })
         }
     }
     
