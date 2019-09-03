@@ -19,7 +19,7 @@ class TextFieldTableViewCell: UITableViewCell,UITextFieldDelegate {
     lazy var tfView:FBTextView = {
         let view = FBTextView()
         view.textfield.delegate = self
-        view.textfield.addTarget(self, action: #selector(textfieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        view.textfield.addTarget(self, action: #selector(textfieldDidChange(_:)), for: UIControl.Event.editingChanged)
         return view
     }()
 
@@ -38,17 +38,23 @@ class TextFieldTableViewCell: UITableViewCell,UITextFieldDelegate {
         super.init(coder: aDecoder)
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier);
         setupUI()
     }
+    
+    
+//    convenience init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//        setupUI()
+//    }
     
     func setupUI() {
         self.contentView.addSubview(self.tfView)
         self.tfView.snp.makeConstraints { (make) in
             make.top.bottom.left.right.equalTo(self)
         }
-        self.tfView.deleteBtn.addTarget(self, action: #selector(deleteAction), for: UIControlEvents.touchUpInside)
+        self.tfView.deleteBtn.addTarget(self, action: #selector(deleteAction), for: UIControl.Event.touchUpInside)
         
     }
     

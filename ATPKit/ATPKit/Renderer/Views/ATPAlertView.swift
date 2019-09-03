@@ -31,7 +31,7 @@ class ATPAlertView: ATPBaseView {
     
     lazy var logoImageView:UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/upToBlock.png", ofType: nil) {
             let image = UIImage.init(contentsOfFile: path)
             imageView.image = image
@@ -72,20 +72,20 @@ class ATPAlertView: ATPBaseView {
     
     lazy var cancelBtn:UIButton = {
        let btn = UIButton()
-        btn.setTitle(Bundle.getATPLocalizedString(forkey: "取消", type: ATPKit.sharedInstance.lang), for: UIControlState.normal)
+        btn.setTitle(Bundle.getATPLocalizedString(forkey: "取消", type: ATPKit.sharedInstance.lang), for: UIControl.State.normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17*kWidthRate)
-        btn.setTitleColor(kColorFromHex(rgbValue: 0x000000).withAlphaComponent(0.25), for: UIControlState.normal)
-        btn.addTarget(self, action: #selector(cancelAction), for: UIControlEvents.touchUpInside)
+        btn.setTitleColor(kColorFromHex(rgbValue: 0x000000).withAlphaComponent(0.25), for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(cancelAction), for: UIControl.Event.touchUpInside)
         
         return btn
     }()
     
     lazy var confirmBtn:UIButton = {
         let btn = UIButton()
-        btn.setTitle(Bundle.getATPLocalizedString(forkey: "继续", type: ATPKit.sharedInstance.lang), for: UIControlState.normal)
+        btn.setTitle(Bundle.getATPLocalizedString(forkey: "继续", type: ATPKit.sharedInstance.lang), for: UIControl.State.normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17*kWidthRate)
-        btn.setTitleColor(.black, for: UIControlState.normal)
-        btn.addTarget(self, action: #selector(confirmAction), for: UIControlEvents.touchUpInside)
+        btn.setTitleColor(.black, for: UIControl.State.normal)
+        btn.addTarget(self, action: #selector(confirmAction), for: UIControl.Event.touchUpInside)
         
         return btn
     }()

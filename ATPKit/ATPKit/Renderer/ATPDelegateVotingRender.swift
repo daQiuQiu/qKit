@@ -134,7 +134,7 @@ open class ATPDelegateVotingRender: UIViewController, ATPRenderer,ATPDelegateVot
         setComponents()
         
         NotificationCenter.default.addObserver(self, selector: Selector.saveCurrentState
-            , name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+            , name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     public func emitEvent(atpEvent: Any) {
@@ -250,8 +250,8 @@ open class ATPDelegateVotingRender: UIViewController, ATPRenderer,ATPDelegateVot
         radioButton.setTitleColor(color, for: [])
         radioButton.iconColor = color
         radioButton.indicatorColor = color
-        radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
-        radioButton.addTarget(self, action: #selector(logSelectedButton), for: UIControlEvents.touchUpInside)
+        radioButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        radioButton.addTarget(self, action: #selector(logSelectedButton), for: UIControl.Event.touchUpInside)
         radioButton.isMultipleSelectionEnabled = false
         radioButton.isMultipleTouchEnabled = false
         self.view.addSubview(radioButton)

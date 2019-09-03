@@ -168,7 +168,7 @@ extension CBToast {
             toastView?.layer.cornerRadius = 5.0
             toastView?.alpha = 0
             
-            let indicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+            let indicatorView = UIActivityIndicatorView.init(style: .whiteLarge)
             indicatorView.tag = 10
             indicatorView.hidesWhenStopped = true
             indicatorView.color = UIColor.white
@@ -207,7 +207,7 @@ extension CBToast {
             toastViewLabel?.layer.cornerRadius = 5.0
             toastViewLabel?.alpha = 0
             
-            let indicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+            let indicatorView = UIActivityIndicatorView.init(style: .whiteLarge)
             indicatorView.tag = 10
             indicatorView.hidesWhenStopped = true
             indicatorView.color = UIColor.white
@@ -242,7 +242,7 @@ extension CBToast {
             size = CGSize.init(width: fixedValue, height: CGFloat(MAXFLOAT))
         }
         //返回计算出的size
-        let resultSize = aText?.boundingRect(with: size, options: (NSStringDrawingOptions(rawValue: NSStringDrawingOptions.usesLineFragmentOrigin.rawValue | NSStringDrawingOptions.usesFontLeading.rawValue | NSStringDrawingOptions.truncatesLastVisibleLine.rawValue)), attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: aFont)], context: nil).size
+        let resultSize = aText?.boundingRect(with: size, options: (NSStringDrawingOptions(rawValue: NSStringDrawingOptions.usesLineFragmentOrigin.rawValue | NSStringDrawingOptions.usesFontLeading.rawValue | NSStringDrawingOptions.truncatesLastVisibleLine.rawValue)), attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: aFont)], context: nil).size
         if isHeightFixed == true {
             return resultSize!.width + 20 //增加左右20间隔
         } else {

@@ -41,7 +41,7 @@ class SDReceiptView: UIView {
     
     public lazy var iconImageView: UIImageView = {
         let imageV = UIImageView()
-        imageV.contentMode = UIViewContentMode.scaleAspectFit
+        imageV.contentMode = UIView.ContentMode.scaleAspectFit
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/success.png", ofType: nil) {
             let image = UIImage.init(contentsOfFile: path)
             imageV.image = image
@@ -74,7 +74,7 @@ class SDReceiptView: UIView {
     
     public lazy var containerIcon:UIImageView = {
         let imageV = UIImageView()
-        imageV.contentMode = UIViewContentMode.scaleAspectFit
+        imageV.contentMode = UIView.ContentMode.scaleAspectFit
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/done.png", ofType: nil) {
             let image = UIImage.init(contentsOfFile: path)
             imageV.image = image
@@ -85,7 +85,7 @@ class SDReceiptView: UIView {
     
     public lazy var QRImageView:UIImageView = {
         let imageV = UIImageView()
-        imageV.contentMode = UIViewContentMode.scaleAspectFit
+        imageV.contentMode = UIView.ContentMode.scaleAspectFit
         
         return imageV
     }()
@@ -113,23 +113,23 @@ class SDReceiptView: UIView {
     }()
     
     public lazy var copyHashBtn: UIButton = {
-        let btn = UIButton(type: UIButtonType.system)
-        btn.setTitle(Bundle.getATPLocalizedString(forkey: "复制交易哈希", type: ATPKit.sharedInstance.lang), for: UIControlState.normal)
+        let btn = UIButton(type: UIButton.ButtonType.system)
+        btn.setTitle(Bundle.getATPLocalizedString(forkey: "复制交易哈希", type: ATPKit.sharedInstance.lang), for: UIControl.State.normal)
         if kScreenWidth < 375 {
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         }
-        btn.addTarget(self, action: #selector(copyHashAction), for: UIControlEvents.touchUpInside)
+        btn.addTarget(self, action: #selector(copyHashAction), for: UIControl.Event.touchUpInside)
         
         return btn
     }()
     
     public lazy var copyLinkBtn: UIButton = {
-        let btn = UIButton(type: UIButtonType.system)
-        btn.setTitle(Bundle.getATPLocalizedString(forkey: "复制浏览器链接", type: ATPKit.sharedInstance.lang), for: UIControlState.normal)
+        let btn = UIButton(type: UIButton.ButtonType.system)
+        btn.setTitle(Bundle.getATPLocalizedString(forkey: "复制浏览器链接", type: ATPKit.sharedInstance.lang), for: UIControl.State.normal)
         if kScreenWidth < 375 {
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         }
-        btn.addTarget(self, action: #selector(copyLinkAction), for: UIControlEvents.touchUpInside)
+        btn.addTarget(self, action: #selector(copyLinkAction), for: UIControl.Event.touchUpInside)
         
         return btn
     }()

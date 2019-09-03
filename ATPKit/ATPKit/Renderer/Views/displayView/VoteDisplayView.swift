@@ -26,7 +26,7 @@ class VoteDisplayView: UIView {
         scroll.showsHorizontalScrollIndicator = false
         scroll.contentSize = CGSize(width: kScreenWidth, height: 700*kHeightRate)
         if #available(iOS 11.0, *) {
-            scroll.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never;
+            scroll.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never;
         }else {
             
         }
@@ -36,7 +36,7 @@ class VoteDisplayView: UIView {
     public lazy var imageView: UIImageView = {
         let imagev = UIImageView()
         imagev.isUserInteractionEnabled = true
-        imagev.contentMode = UIViewContentMode.scaleAspectFit
+        imagev.contentMode = UIView.ContentMode.scaleAspectFit
         imagev.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 380*kWidthRate)
 //        imagev.sizeToFit()
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
@@ -222,7 +222,7 @@ class VoteDisplayView: UIView {
     private func createRadioButton(frame: CGRect, title: String, color: UIColor) -> DLRadioButton {
         let radioButton = DLRadioButton(frame: frame)
         radioButton.titleLabel!.font = UIFont.systemFont(ofSize: 15*kWidthRate)
-        radioButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        radioButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         radioButton.titleLabel?.numberOfLines = 0
         radioButton.setTitle(title, for: [])
         radioButton.setTitleColor(.black, for: [])
@@ -233,8 +233,8 @@ class VoteDisplayView: UIView {
 //        radioButton.imageEdgeInsets = UIEdgeInsetsMake(0, 20*kWidthRate, 0, -20*kWidthRate)
 //        radioButton.titleEdgeInsets = UIEdgeInsetsMake(0, -20*kWidthRate, 0, 20*kWidthRate)
         
-        radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
-        radioButton.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        radioButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        radioButton.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
 //        if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/singleBoxUnSelected.png", ofType: nil) {
 //            let image = UIImage.init(contentsOfFile: path)!
 //            radioButton.icon = image
@@ -243,7 +243,7 @@ class VoteDisplayView: UIView {
 //            let image = UIImage.init(contentsOfFile: path1)!
 //            radioButton.iconSelected = image
 //        }
-        radioButton.addTarget(self, action: #selector(chooseAction(sender:)), for: UIControlEvents.touchUpInside)
+        radioButton.addTarget(self, action: #selector(chooseAction(sender:)), for: UIControl.Event.touchUpInside)
         radioButton.isMultipleSelectionEnabled = false
         radioButton.isMultipleTouchEnabled = false
         

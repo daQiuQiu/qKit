@@ -28,17 +28,17 @@ public class ATPTopNaviView: UIView {
         let btn = UIButton()
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/backbtn.png", ofType: nil) {
             let image = UIImage.init(contentsOfFile: path)
-            btn.setImage(image, for: UIControlState.normal)
-            btn.imageEdgeInsets = UIEdgeInsetsMake(9, 10, 9, 10)
+            btn.setImage(image, for: UIControl.State.normal)
+            btn.imageEdgeInsets = UIEdgeInsets(top: 9, left: 10, bottom: 9, right: 10)
         }
-        btn.addTarget(self, action: #selector(backAction), for: UIControlEvents.touchUpInside)
+        btn.addTarget(self, action: #selector(backAction), for: UIControl.Event.touchUpInside)
         
         return btn
     }()
     
     lazy public var logoImageView:UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/atptitlelogo.png", ofType: nil) {
             let image = UIImage.init(contentsOfFile: path)
             imageView.image = image

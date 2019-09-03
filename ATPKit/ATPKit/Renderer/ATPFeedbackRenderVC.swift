@@ -55,13 +55,13 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     
     lazy var submitBtn: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        btn.setTitle(Bundle.getATPLocalizedString(forkey: "submit", type: self.bciConfig?.language), for: UIControlState.normal)
+        btn.setTitle(Bundle.getATPLocalizedString(forkey: "submit", type: self.bciConfig?.language), for: UIControl.State.normal)
         btn.backgroundColor = UIColor.black
-        btn.setTitleColor(.white, for: UIControlState.normal)
+        btn.setTitleColor(.white, for: UIControl.State.normal)
         btn.layer.cornerRadius = 8*kWidthRate
         
         btn.center = CGPoint(x: self.view.center.x, y: self.view.bounds.height-50)
-        btn.addTarget(self, action: #selector(showConfirmView), for: UIControlEvents.touchUpInside)
+        btn.addTarget(self, action: #selector(showConfirmView), for: UIControl.Event.touchUpInside)
         return btn
     }()
     
@@ -75,8 +75,8 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.view.addGestureRecognizer(tap)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
     }
     
@@ -141,7 +141,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         
         self.displayView.placeholder = tieModel.placeholder
         self.displayView.titletext = tieModel.titleText
-        self.displayView.addTFBtn.setTitle(self.getI18NString(key: "addmore"), for: UIControlState.normal)
+        self.displayView.addTFBtn.setTitle(self.getI18NString(key: "addmore"), for: UIControl.State.normal)
         
         
         if tieModel.creatives.count != 0 {
@@ -156,7 +156,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
             self.displayView.displayArray = []
             self.displayView.addTFBtn.isHidden = true
             self.isInteracted = true
-            self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControlState.normal)
+            self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControl.State.normal)
         }
         
     }
@@ -234,7 +234,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
             self.counting = 0
             self.receiptView.isHidden = false
             self.submitBtn.isEnabled = true
-            self.submitBtn.setTitle(getI18NString(key: "完成"), for: UIControlState.normal)
+            self.submitBtn.setTitle(getI18NString(key: "完成"), for: UIControl.State.normal)
         case .transFail:
             //NOT IN USE
             self.displayView.isHidden = true
@@ -310,9 +310,9 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         let window = UIApplication.shared.keyWindow!
         let transition = CATransition()
         transition.duration = 0.4
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.isRemovedOnCompletion = true
         window.layer.add(transition, forKey: "transitioninout")
         self.dismiss(animated: false, completion: nil)
@@ -320,7 +320,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
     
     @objc func startCounting() {
         if isOnchian == false {
-            self.submitBtn.setTitle("\(getI18NString(key: "上链中"))(\(counting)s)...", for: UIControlState.normal)
+            self.submitBtn.setTitle("\(getI18NString(key: "上链中"))(\(counting)s)...", for: UIControl.State.normal)
             self.counting += 1
             self.perform(#selector(startCounting), with: nil, afterDelay: 1.0)
         }
@@ -344,7 +344,7 @@ class ATPFeedbackRenderVC: UIViewController,ATPTransactionCallBack {
         DispatchQueue.main.async {
             
             let user_info = notification.userInfo
-            let keyboardRect = (user_info?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardRect = (user_info?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
             
             let y = keyboardRect.size.height
             UIView.animate(withDuration: 0.35, animations: {

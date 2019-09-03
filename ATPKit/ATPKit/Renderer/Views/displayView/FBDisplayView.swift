@@ -25,17 +25,17 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
     public var textArray:[String] = [""]
     
     public lazy var tableView: UITableView = {
-        let tableview = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.plain)
+        let tableview = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableView.Style.plain)
         tableview.delegate = self
         tableview.dataSource = self
         tableview.estimatedRowHeight = 0
-        tableview.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableview.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         tableview.register(ImageTableViewCell.self, forCellReuseIdentifier: "imagecell")
         //        tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "tfcell")
         tableview.estimatedRowHeight = 0;
         tableview.estimatedSectionHeaderHeight = 0;
-        tableview.contentInset = UIEdgeInsetsMake(-1, 0, 0, 0);
+        tableview.contentInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0);
         tableview.showsVerticalScrollIndicator = true
         let view = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 55*kWidthRate))
         
@@ -56,7 +56,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
         let btn = UIButton()
         btn.backgroundColor = kColorFromHex(rgbValue: 0x007AFF)
         //        btn.setTitle("新增", for: UIControlState.normal)
-        btn.addTarget(self, action: #selector(addTFAction), for: UIControlEvents.touchUpInside)
+        btn.addTarget(self, action: #selector(addTFAction), for: UIControl.Event.touchUpInside)
         btn.layer.cornerRadius = 6*kWidthRate
         
         return btn
@@ -210,7 +210,7 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
         print("cell for row")
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "imagecell", for: indexPath) as! ImageTableViewCell
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
             if self.displayArray.count > 0 {
                 cell.tfTitleLabel.text = titletext
             }else {
@@ -244,14 +244,14 @@ class FBDisplayView: UIView,UITableViewDelegate,UITableViewDataSource{
             let cellidentifier = "tfcell - \(indexPath.row)"
             var cell = tableView.dequeueReusableCell(withIdentifier: cellidentifier) as? TextFieldTableViewCell
             if cell == nil {
-                cell = TextFieldTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: cellidentifier)
+                cell = TextFieldTableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellidentifier)
             }
             
-            cell!.selectionStyle = UITableViewCellSelectionStyle.none
+            cell!.selectionStyle = UITableViewCell.SelectionStyle.none
             cell!.tag = indexPath.row
             let plStr = String(format: "%@%ld", arguments: [placeholder,self.displayArray[indexPath.row - 1]])
             cell!.tfView.textfield.text = self.textArray[indexPath.row - 1]
-            cell!.tfView.textfield.attributedPlaceholder = NSAttributedString.init(string:plStr, attributes: [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 14*kWidthRate)])
+            cell!.tfView.textfield.attributedPlaceholder = NSAttributedString.init(string:plStr, attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14*kWidthRate)])
             cell!.tfCellSetup()
             cell!.myDeleteClosure = { [unowned self] (cellTag) -> () in
                 self.deleteCell(celltag: cellTag)

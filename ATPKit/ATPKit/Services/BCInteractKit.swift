@@ -136,9 +136,9 @@ import Foundation
                                 //transition
                                 let transition = CATransition()
                                 transition.duration = 0.4
-                                transition.type = kCATransitionPush
-                                transition.subtype = kCATransitionFromRight
-                                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                                transition.type = CATransitionType.push
+                                transition.subtype = CATransitionSubtype.fromRight
+                                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                                 transition.isRemovedOnCompletion = true
                                 window.layer.add(transition, forKey: "transitionin")
                                 window.rootViewController?.present(sdVC, animated: false, completion: nil)
@@ -162,9 +162,9 @@ import Foundation
                                 //transition
                                 let transition = CATransition()
                                 transition.duration = 0.4
-                                transition.type = kCATransitionPush
-                                transition.subtype = kCATransitionFromRight
-                                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                                transition.type = CATransitionType.push
+                                transition.subtype = CATransitionSubtype.fromRight
+                                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                                 transition.isRemovedOnCompletion = true
                                 window.layer.add(transition, forKey: "transitionin")
                                 window.rootViewController?.present(voteVC, animated: false, completion: nil)
@@ -188,9 +188,9 @@ import Foundation
                                 //transition
                                 let transition = CATransition()
                                 transition.duration = 0.4
-                                transition.type = kCATransitionPush
-                                transition.subtype = kCATransitionFromRight
-                                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                                transition.type = CATransitionType.push
+                                transition.subtype = CATransitionSubtype.fromRight
+                                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                                 transition.isRemovedOnCompletion = true
                                 window.layer.add(transition, forKey: "transitionin")
                                 window.rootViewController?.present(webVC, animated: false, completion: nil)

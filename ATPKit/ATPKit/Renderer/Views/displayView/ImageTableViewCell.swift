@@ -12,7 +12,7 @@ class ImageTableViewCell: UITableViewCell {
     public lazy var imgView: UIImageView = {
         let imagev = UIImageView()
         imagev.isUserInteractionEnabled = true
-        imagev.contentMode = UIViewContentMode.scaleAspectFit
+        imagev.contentMode = UIView.ContentMode.scaleAspectFit
 //        imagev.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 380*kHeightRate)
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
             let image = UIImage.init(contentsOfFile: path)!
@@ -49,7 +49,7 @@ class ImageTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.clipsToBounds = true
         setupUI()
