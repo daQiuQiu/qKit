@@ -15,7 +15,7 @@ class FBTextView: UIView {
         tf.layer.borderWidth = 1.0
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-        tf.leftViewMode = UITextFieldViewMode.always
+        tf.leftViewMode = UITextField.ViewMode.always
         tf.layer.cornerRadius = 6*kWidthRate
         tf.autocorrectionType = UITextAutocorrectionType.no
         tf.autocapitalizationType = UITextAutocapitalizationType.none
@@ -26,9 +26,9 @@ class FBTextView: UIView {
         let btn = UIButton()
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/delete.png", ofType: nil) {
             let image = UIImage.init(contentsOfFile: path)
-            btn.setImage(image, for: UIControlState.normal)
+            btn.setImage(image, for: UIControl.State.normal)
         }
-        btn.setTitleColor(.black, for: UIControlState.normal)
+        btn.setTitleColor(.black, for: UIControl.State.normal)
         
         
         return btn

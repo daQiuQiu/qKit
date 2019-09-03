@@ -59,13 +59,13 @@ class ATPVotingRenderVC: UIViewController,ATPTransactionCallBack {
     
     lazy var submitBtn: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        btn.setTitle(Bundle.getATPLocalizedString(forkey: "submit", type: self.bciConfig?.language), for: UIControlState.normal)
+        btn.setTitle(Bundle.getATPLocalizedString(forkey: "submit", type: self.bciConfig?.language), for: UIControl.State.normal)
         btn.backgroundColor = UIColor.black
-        btn.setTitleColor(.white, for: UIControlState.normal)
+        btn.setTitleColor(.white, for: UIControl.State.normal)
         btn.layer.cornerRadius = 8*kWidthRate
         
         btn.center = CGPoint(x: self.view.center.x, y: self.view.bounds.height-50)
-        btn.addTarget(self, action: #selector(showConfirmView), for: UIControlEvents.touchUpInside)
+        btn.addTarget(self, action: #selector(showConfirmView), for: UIControl.Event.touchUpInside)
         return btn
     }()
 
@@ -140,7 +140,7 @@ class ATPVotingRenderVC: UIViewController,ATPTransactionCallBack {
             if tieModel.isInteracted == true {
                 print("INTO INTERACTED STATE")
                 self.isInteracted = true
-                self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControlState.normal)
+                self.submitBtn.setTitle(getI18NString(key: "查看回执"), for: UIControl.State.normal)
                 self.displayView.optionContainerView.isUserInteractionEnabled = false
                 self.displayView.optionContainerView.alpha = 0.5
             }
@@ -222,7 +222,7 @@ class ATPVotingRenderVC: UIViewController,ATPTransactionCallBack {
             self.counting = 0
             self.receiptView.isHidden = false
             self.submitBtn.isEnabled = true
-            self.submitBtn.setTitle(getI18NString(key: "完成"), for: UIControlState.normal)
+            self.submitBtn.setTitle(getI18NString(key: "完成"), for: UIControl.State.normal)
         case .transFail:
             //NOT IN USE
             self.displayView.isHidden = true
@@ -273,9 +273,9 @@ class ATPVotingRenderVC: UIViewController,ATPTransactionCallBack {
         let window = UIApplication.shared.keyWindow!
         let transition = CATransition()
         transition.duration = 0.4
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.isRemovedOnCompletion = true
         window.layer.add(transition, forKey: "transitioninout")
         self.dismiss(animated: false, completion: nil)
@@ -283,7 +283,7 @@ class ATPVotingRenderVC: UIViewController,ATPTransactionCallBack {
     
     @objc func startCounting() {
         if isOnchian == false {
-            self.submitBtn.setTitle("\(getI18NString(key: "上链中"))(\(counting)s)...", for: UIControlState.normal)
+            self.submitBtn.setTitle("\(getI18NString(key: "上链中"))(\(counting)s)...", for: UIControl.State.normal)
             self.counting += 1
             self.perform(#selector(startCounting), with: nil, afterDelay: 1.0)
         }
