@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "qadRenKit"
-  s.version      = "0.1"
+  s.version      = "0.2"
   s.summary      = "qKit provides digital ads display using Nebulas blockchain"
 
   # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "qKit provides digital ads display using Nebulas blockchain"
+  # s.description  = "qKit provides digital ads display using Nebulas blockchain"
 
     s.homepage     = "https://github.com/daQiuQiu/qKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -64,6 +64,7 @@ Pod::Spec.new do |s|
 
   # s.platform     = :ios
   s.platform     = :ios, "9.0"
+  s.swift_versions = "4.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
