@@ -36,9 +36,11 @@
 		3EFF2FE021398EF2001CD174 /* ATPKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF2FDE21398EF2001CD174 /* ATPKit.swift */; };
 		862C1B97712394D1F7498592 /* Pods_ATPKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE55AA1A9458EA78A930F921 /* Pods_ATPKitTests.framework */; };
 		8F354FC921855094003AD468 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F354FCB21855094003AD468 /* Localizable.strings */; };
+		8F47439B21DE49E500CB51A8 /* ATPJSContextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F47439A21DE49E500CB51A8 /* ATPJSContextModel.swift */; };
 		8F489B24219D728900EDE7D0 /* SDTIEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F489B23219D728900EDE7D0 /* SDTIEModel.swift */; };
 		8F4E846421A82BAD0075DAAA /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F4E846221A82BAD0075DAAA /* placeholder.png */; };
 		8F4E846521A82BAD0075DAAA /* placeholderFail.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F4E846321A82BAD0075DAAA /* placeholderFail.png */; };
+		8F4E9E8E21DF523300521CE4 /* FBTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4E9E8D21DF523200521CE4 /* FBTextView.swift */; };
 		8F4F0BF02192EF6800CBC033 /* ATPTopNaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F0BEF2192EF6800CBC033 /* ATPTopNaviView.swift */; };
 		8F5000A721A55C4D0009C78D /* BCInteractKit-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5000A621A55C4D0009C78D /* BCInteractKit-Test.swift */; };
 		8F50880F218AF57D00AD22E5 /* BCInteractAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50880E218AF57D00AD22E5 /* BCInteractAPI.swift */; };
@@ -92,6 +94,9 @@
 		8F534AA321ABCD050043AD34 /* ATPKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 3EA449B5213832C200CE2BB9 /* ATPKit.framework */; };
 		8F5A790821A6E81100FAFF5E /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F5A790721A6E81100FAFF5E /* success.png */; };
 		8F5CB6DB218BED2900650EE1 /* BCInteractKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CB6DA218BED2900650EE1 /* BCInteractKit.swift */; };
+		8F5FDCDF21E2FBB400C930B1 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F5FDCD821E2FBB400C930B1 /* delete.png */; };
+		8F619B4B21DC9FB50057A179 /* ATPFeedbackRenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F619B4A21DC9FB50057A179 /* ATPFeedbackRenderVC.swift */; };
+		8F619B5321DCBA590057A179 /* FBDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F619B5221DCBA590057A179 /* FBDisplayView.swift */; };
 		8F6789CE21A25DDC00537EB9 /* ATPVotingRenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */; };
 		8F6789D021A27E9D00537EB9 /* VoteDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */; };
 		8F6789D221A2922900537EB9 /* VoteTIEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789D121A2922900537EB9 /* VoteTIEModel.swift */; };
@@ -103,6 +108,8 @@
 		8FB204672193E56A00FDAF10 /* SDDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB204662193E56A00FDAF10 /* SDDisplayView.swift */; };
 		8FB2046F2193E6FE00FDAF10 /* SDGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB2046E2193E6FE00FDAF10 /* SDGifView.swift */; };
 		8FB204712193E71D00FDAF10 /* SDReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB204702193E71D00FDAF10 /* SDReceiptView.swift */; };
+		8FD1D2F321E1133400162EF4 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1D2EC21E1133400162EF4 /* ImageTableViewCell.swift */; };
+		8FD1D2F521E1135400162EF4 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1D2F421E1135400162EF4 /* TextFieldTableViewCell.swift */; };
 		8FE4FC6F219066AD00FDC23D /* ATPExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FC6E219066AD00FDC23D /* ATPExtensions.swift */; };
 		8FE4FC71219073DE00FDC23D /* BCITransactionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FC70219073DE00FDC23D /* BCITransactionInfo.swift */; };
 		8FF2500221A433E50064B41D /* SDCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2500121A433E50064B41D /* SDCheckBoxView.swift */; };
@@ -228,9 +235,11 @@
 		8F354FCA21855094003AD468 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F354FCC218550A0003AD468 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8F354FCD218550A9003AD468 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8F47439A21DE49E500CB51A8 /* ATPJSContextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPJSContextModel.swift; sourceTree = "<group>"; };
 		8F489B23219D728900EDE7D0 /* SDTIEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTIEModel.swift; sourceTree = "<group>"; };
 		8F4E846221A82BAD0075DAAA /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		8F4E846321A82BAD0075DAAA /* placeholderFail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderFail.png; sourceTree = "<group>"; };
+		8F4E9E8D21DF523200521CE4 /* FBTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBTextView.swift; sourceTree = "<group>"; };
 		8F4F0BEF2192EF6800CBC033 /* ATPTopNaviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPTopNaviView.swift; sourceTree = "<group>"; };
 		8F5000A621A55C4D0009C78D /* BCInteractKit-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BCInteractKit-Test.swift"; sourceTree = "<group>"; };
 		8F50880E218AF57D00AD22E5 /* BCInteractAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCInteractAPI.swift; sourceTree = "<group>"; };
@@ -255,6 +264,9 @@
 		8F51EC1E2195966D00248F7E /* atplogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atplogo.png; sourceTree = "<group>"; };
 		8F5A790721A6E81100FAFF5E /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
 		8F5CB6DA218BED2900650EE1 /* BCInteractKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCInteractKit.swift; sourceTree = "<group>"; };
+		8F5FDCD821E2FBB400C930B1 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		8F619B4A21DC9FB50057A179 /* ATPFeedbackRenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPFeedbackRenderVC.swift; sourceTree = "<group>"; };
+		8F619B5221DCBA590057A179 /* FBDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBDisplayView.swift; sourceTree = "<group>"; };
 		8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPVotingRenderVC.swift; sourceTree = "<group>"; };
 		8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteDisplayView.swift; sourceTree = "<group>"; };
 		8F6789D121A2922900537EB9 /* VoteTIEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTIEModel.swift; sourceTree = "<group>"; };
@@ -266,6 +278,8 @@
 		8FB204662193E56A00FDAF10 /* SDDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDDisplayView.swift; sourceTree = "<group>"; };
 		8FB2046E2193E6FE00FDAF10 /* SDGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDGifView.swift; sourceTree = "<group>"; };
 		8FB204702193E71D00FDAF10 /* SDReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDReceiptView.swift; sourceTree = "<group>"; };
+		8FD1D2EC21E1133400162EF4 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		8FD1D2F421E1135400162EF4 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		8FE4FC6E219066AD00FDC23D /* ATPExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPExtensions.swift; sourceTree = "<group>"; };
 		8FE4FC70219073DE00FDC23D /* BCITransactionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCITransactionInfo.swift; sourceTree = "<group>"; };
 		8FF2500121A433E50064B41D /* SDCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCheckBoxView.swift; sourceTree = "<group>"; };
@@ -529,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				8F354FCB21855094003AD468 /* Localizable.strings */,
+				8F5FDCD821E2FBB400C930B1 /* delete.png */,
 				8F5A790721A6E81100FAFF5E /* success.png */,
 				8F51EC1E2195966D00248F7E /* atplogo.png */,
 				8F51EC1D2195966D00248F7E /* atptitlelogo.png */,
@@ -548,15 +563,15 @@
 		8F50AB0721916B3300DFC150 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F619B5421DCC6DF0057A179 /* displayView */,
 				8F50AB0521916B2E00DFC150 /* CBToast.swift */,
 				8F4F0BEF2192EF6800CBC033 /* ATPTopNaviView.swift */,
 				8F51EBFF2195577D00248F7E /* ATPAlertView.swift */,
 				8FF2500121A433E50064B41D /* SDCheckBoxView.swift */,
-				8FB204662193E56A00FDAF10 /* SDDisplayView.swift */,
-				8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */,
 				8FB2046E2193E6FE00FDAF10 /* SDGifView.swift */,
 				8FB204702193E71D00FDAF10 /* SDReceiptView.swift */,
 				8F94C4B121A2DEC300ECEDA7 /* ATPBaseView.swift */,
+				8F4E9E8D21DF523200521CE4 /* FBTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -583,11 +598,24 @@
 			path = SmartDrop;
 			sourceTree = "<group>";
 		};
+		8F619B5421DCC6DF0057A179 /* displayView */ = {
+			isa = PBXGroup;
+			children = (
+				8FD1D2EC21E1133400162EF4 /* ImageTableViewCell.swift */,
+				8FD1D2F421E1135400162EF4 /* TextFieldTableViewCell.swift */,
+				8F619B5221DCBA590057A179 /* FBDisplayView.swift */,
+				8FB204662193E56A00FDAF10 /* SDDisplayView.swift */,
+				8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */,
+			);
+			path = displayView;
+			sourceTree = "<group>";
+		};
 		8FE4FC6621902F2700FDC23D /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
 				8F50AB0721916B3300DFC150 /* Views */,
 				8F6C48E021902F0D007EF15C /* ATPSmartDropRender.swift */,
+				8F619B4A21DC9FB50057A179 /* ATPFeedbackRenderVC.swift */,
 				8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */,
 				8F50AB522191882800DFC150 /* ATPDelegateVotingRender.swift */,
 			);
@@ -599,6 +627,7 @@
 			children = (
 				8F50AB742191BE4C00DFC150 /* Vote */,
 				8F50AB792191BE5800DFC150 /* SmartDrop */,
+				8F47439A21DE49E500CB51A8 /* ATPJSContextModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -637,6 +666,7 @@
 				3EA449B1213832C200CE2BB9 /* Frameworks */,
 				3EA449B2213832C200CE2BB9 /* Headers */,
 				3EA449B3213832C200CE2BB9 /* Resources */,
+				8F5300E221E75F2E00DA9FCA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -770,6 +800,7 @@
 				8F4E846421A82BAD0075DAAA /* placeholder.png in Resources */,
 				8F51EC1F2195966D00248F7E /* atptitlelogo.png in Resources */,
 				8F94C48A21A2B10100ECEDA7 /* singleBoxSelected.png in Resources */,
+				8F5FDCDF21E2FBB400C930B1 /* delete.png in Resources */,
 				8F354FC921855094003AD468 /* Localizable.strings in Resources */,
 				8F51EC1A2195963F00248F7E /* checkboxUnSelected.png in Resources */,
 				8F51EC202195966D00248F7E /* atplogo.png in Resources */,
@@ -817,6 +848,23 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATPKitTests/Pods-ATPKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8F5300E221E75F2E00DA9FCA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nWORKSPACE_NAME=${PROJECT_NAME}.xcworkspace\nBUILD_FOLDER=${PROJECT_DIR}/ATPBuild/ATP_iOS_Release\nBUILD_TIME=`date \"+%y%m%d\"`\n# make sure the output directory exists\nmkdir -p \"${BUILD_FOLDER}/atpkit_release_${BUILD_TIME}\"\n#Step 1. Copy to Project Dir\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${BUILD_FOLDER}/atpkit_release_${BUILD_TIME}\"\n# Step 6. zip framework\ncd \"${PROJECT_DIR}/ATPBuild/ATP_iOS_Release\"\nzip -r \"ATP_iOS_release_${BUILD_TIME}.zip\" \"atpkit_release_${BUILD_TIME}\"\n#latest version\nzip -r \"ATP_iOS_release_latest.zip\" \"atpkit_release_${BUILD_TIME}\"\nrm -rf \"${PROJECT_DIR}/ATPBuild/ATP_iOS_Release/atpkit_release_${BUILD_TIME}\"\n# Step 7. Convenience step to open the project's directory in Finder\n#open \"${PROJECT_DIR}/ATPBuild\"\n";
+		};
 		8F86FB1F2175A38000CC315D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -828,7 +876,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nWORKSPACE_NAME=${PROJECT_NAME}.xcworkspace\nBUILD_FOLDER=${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\nBUILD_TIME=`date \"+%y%m%d\"`\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n# Step 1. Build Device and Simulator versions\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphoneos ONLY_ACTIVE_ARCH=NO   BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n##Step 5. Convenience step to copy the framework to the project's directory\n#cp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n## Step 6. zip framework\n#cd \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\"\n#zip -r \"ATP_iOS_${BUILD_TIME}.zip\" \"atpkit_${BUILD_TIME}\"\n##latest version\n#zip -r \"ATP_iOS_latest.zip\" \"atpkit_${BUILD_TIME}\"\n#rm -rf \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK/atpkit_${BUILD_TIME}\"\n## Step 7. Convenience step to open the project's directory in Finder\n#open \"${PROJECT_DIR}/ATPBuild\"\n\n\n";
+			shellScript = "#!/bin/sh\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nWORKSPACE_NAME=${PROJECT_NAME}.xcworkspace\nBUILD_FOLDER=${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\nBUILD_TIME=`date \"+%y%m%d\"`\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n# Step 1. Build Device and Simulator versions\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphoneos ONLY_ACTIVE_ARCH=NO   BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n#Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n# Step 6. zip framework\ncd \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\"\nzip -r \"ATP_iOS_${BUILD_TIME}.zip\" \"atpkit_${BUILD_TIME}\"\n#latest version\nzip -r \"ATP_iOS_latest.zip\" \"atpkit_${BUILD_TIME}\"\nrm -rf \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK/atpkit_${BUILD_TIME}\"\n# Step 7. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}/ATPBuild\"\n\n\n";
 		};
 		B11B0F69C29D834A7D83111B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -875,10 +923,14 @@
 			files = (
 				3E6F71D521392FEA007DD408 /* ATPConfig.swift in Sources */,
 				8FB204712193E71D00FDAF10 /* SDReceiptView.swift in Sources */,
+				8F619B4B21DC9FB50057A179 /* ATPFeedbackRenderVC.swift in Sources */,
+				8F4E9E8E21DF523300521CE4 /* FBTextView.swift in Sources */,
 				8F508815218B041A00AD22E5 /* ATPErrorSource.swift in Sources */,
 				3EFF2FDF21398EF2001CD174 /* ATPKit.swift in Sources */,
 				8F50AB632191884600DFC150 /* ATPErrors.swift in Sources */,
+				8F47439B21DE49E500CB51A8 /* ATPJSContextModel.swift in Sources */,
 				8FE4FC6F219066AD00FDC23D /* ATPExtensions.swift in Sources */,
+				8FD1D2F521E1135400162EF4 /* TextFieldTableViewCell.swift in Sources */,
 				8FE4FC71219073DE00FDC23D /* BCITransactionInfo.swift in Sources */,
 				8F6789CE21A25DDC00537EB9 /* ATPVotingRenderVC.swift in Sources */,
 				8FB2046F2193E6FE00FDAF10 /* SDGifView.swift in Sources */,
@@ -893,6 +945,7 @@
 				8F94C4B221A2DEC300ECEDA7 /* ATPBaseView.swift in Sources */,
 				BEF8C80B4299B922D794EFE2 /* BCDelegateAPI.swift in Sources */,
 				8F508813218AFF6600AD22E5 /* BCInteractManager.swift in Sources */,
+				8F619B5321DCBA590057A179 /* FBDisplayView.swift in Sources */,
 				8F50AB5E2191883D00DFC150 /* BCDVote.swift in Sources */,
 				8F6C48E121902F0D007EF15C /* ATPSmartDropRender.swift in Sources */,
 				BEF8C61FC4512DE4418F2B34 /* ATPConnectivity.swift in Sources */,
@@ -902,6 +955,7 @@
 				8F6789D021A27E9D00537EB9 /* VoteDisplayView.swift in Sources */,
 				8F50AB532191882800DFC150 /* ATPDelegateVotingRender.swift in Sources */,
 				8FF2500221A433E50064B41D /* SDCheckBoxView.swift in Sources */,
+				8FD1D2F321E1133400162EF4 /* ImageTableViewCell.swift in Sources */,
 				3EFF2FD321397BA1001CD174 /* BCDVotingManager.swift in Sources */,
 				8F50AB5D2191883D00DFC150 /* BCDAccount.swift in Sources */,
 				8F50AAFD21913E8F00DFC150 /* BCIPayloadConfig.swift in Sources */,
@@ -1121,10 +1175,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ATPBuild/ATP_iOS_Build/atpkit_181128",
+					"$(PROJECT_DIR)/ATPKit",
 				);
 				INFOPLIST_FILE = ATPKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1147,7 +1202,7 @@
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1170,10 +1225,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ATPBuild/ATP_iOS_Build/atpkit_181128",
+					"$(PROJECT_DIR)/ATPKit",
 				);
 				INFOPLIST_FILE = ATPKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1195,7 +1251,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -136,9 +136,9 @@ import Foundation
                                 //transition
                                 let transition = CATransition()
                                 transition.duration = 0.4
-                                transition.type = kCATransitionPush
-                                transition.subtype = kCATransitionFromRight
-                                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                                transition.type = CATransitionType.push
+                                transition.subtype = CATransitionSubtype.fromRight
+                                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                                 transition.isRemovedOnCompletion = true
                                 window.layer.add(transition, forKey: "transitionin")
                                 window.rootViewController?.present(sdVC, animated: false, completion: nil)
@@ -162,12 +162,38 @@ import Foundation
                                 //transition
                                 let transition = CATransition()
                                 transition.duration = 0.4
-                                transition.type = kCATransitionPush
-                                transition.subtype = kCATransitionFromRight
-                                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                                transition.type = CATransitionType.push
+                                transition.subtype = CATransitionSubtype.fromRight
+                                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
                                 transition.isRemovedOnCompletion = true
                                 window.layer.add(transition, forKey: "transitionin")
                                 window.rootViewController?.present(voteVC, animated: false, completion: nil)
+                            }else if renderType == "in-wallet feedback" {
+                                let tieDic = resultDic["tie"] as! [String:Any]
+                                //                                print("Vote Dic = \(resultDic)")
+                                let webVC = ATPFeedbackRenderVC()
+                                if let config = self.bciConfig {
+                                    webVC.setConfig(config: config)
+                                }else {
+                                    //                                    print("no config")
+                                }
+                                
+                                webVC.fromAddress = payload.fromAddress
+                                webVC.contractAddress = contractAddress
+                                let tieModel = VoteTIEModel(dic: tieDic)
+                                tieModel.isInteracted = resultDic["interacted"] as! Bool
+                                //                                print("tieDic = \(tieDic)")
+                                webVC.setTIEData(tieModel: tieModel)
+                                
+                                //transition
+                                let transition = CATransition()
+                                transition.duration = 0.4
+                                transition.type = CATransitionType.push
+                                transition.subtype = CATransitionSubtype.fromRight
+                                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                                transition.isRemovedOnCompletion = true
+                                window.layer.add(transition, forKey: "transitionin")
+                                window.rootViewController?.present(webVC, animated: false, completion: nil)
                             }else {
                                 CBToast.showToastAction(message: "Unsupported TIE Type")
                             }

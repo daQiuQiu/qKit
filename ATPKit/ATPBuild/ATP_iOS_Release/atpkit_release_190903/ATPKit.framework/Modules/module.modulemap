@@ -1,0 +1,11 @@
+framework module ATPKit {
+  umbrella header "ATPKit.h"
+
+  export *
+  module * { export * }
+}
+
+module ATPKit.Swift {
+    header "ATPKit-Swift.h"
+    requires objc
+}

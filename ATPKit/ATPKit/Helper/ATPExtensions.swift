@@ -12,7 +12,7 @@ import UIKit
 public extension Data {
     private static let hexAlphabet = "0123456789abcdef".unicodeScalars.map { $0 }
     
-    public func hexEncodedString() -> String {
+    func hexEncodedString() -> String {
         return String(self.reduce(into: "".unicodeScalars, { (result, value) in
             result.append(Data.hexAlphabet[Int(value/16)])
             result.append(Data.hexAlphabet[Int(value%16)])
@@ -125,7 +125,7 @@ public extension ATPKit {
         spinnerView.layer.cornerRadius = 20*kWidthRate
         spinnerView.clipsToBounds = true
         spinnerView.backgroundColor = kColorFromHex(rgbValue: 0x000000).withAlphaComponent(0.6)
-        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
         ai.startAnimating()
         ai.center = spinnerView.center
         spinnerView.center = containerView.center
@@ -153,7 +153,7 @@ public extension UIViewController {
         spinnerView.layer.cornerRadius = 20*kWidthRate
         spinnerView.clipsToBounds = true
         spinnerView.backgroundColor = kColorFromHex(rgbValue: 0x000000).withAlphaComponent(0.6)
-        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
         ai.startAnimating()
         ai.center = spinnerView.center
         spinnerView.center = containerView.center

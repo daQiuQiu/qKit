@@ -12,7 +12,7 @@ class SDCheckBoxView: UIView {
     
     public lazy var imageView:UIImageView = {
         let imageview = UIImageView()
-        imageview.contentMode = UIViewContentMode.scaleAspectFit
+        imageview.contentMode = UIView.ContentMode.scaleAspectFit
         
         return imageview
     }()

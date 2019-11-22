@@ -13,7 +13,7 @@ class SDGifView: UIView {
     lazy var imageView: UIImageView = {
         let imagev = UIImageView()
         
-        imagev.contentMode = UIViewContentMode.scaleAspectFit
+        imagev.contentMode = UIView.ContentMode.scaleAspectFit
         return imagev
     }()
     
@@ -32,7 +32,7 @@ class SDGifView: UIView {
             imagev.image = image
         }
         
-        imagev.contentMode = UIViewContentMode.scaleAspectFit
+        imagev.contentMode = UIView.ContentMode.scaleAspectFit
         return imagev
     }()
     

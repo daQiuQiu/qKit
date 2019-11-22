@@ -21,7 +21,7 @@ class SDDisplayView: UIView {
         scroll.showsHorizontalScrollIndicator = false
         scroll.contentSize = CGSize(width: kScreenWidth, height: 400*kHeightRate)
         if #available(iOS 11.0, *) {
-            scroll.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never;
+            scroll.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never;
         }
         return scroll
     }()
@@ -29,7 +29,7 @@ class SDDisplayView: UIView {
     public lazy var imageView: UIImageView = {
         let imagev = UIImageView()
         imagev.isUserInteractionEnabled = true
-        imagev.contentMode = UIViewContentMode.scaleAspectFit
+        imagev.contentMode = UIView.ContentMode.scaleAspectFit
         imagev.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 380*kHeightRate)
         if let path = Bundle.main.path(forResource: "Frameworks/ATPKit.framework/placeholder.png", ofType: nil) {
             let image = UIImage.init(contentsOfFile: path)!
@@ -202,7 +202,7 @@ class SDDisplayView: UIView {
     }
     
     private func sizeWithText(text: String, font: UIFont, size: CGSize) -> CGRect {
-        let attributes = [NSAttributedStringKey.font: font]
+        let attributes = [NSAttributedString.Key.font: font]
         let option = NSStringDrawingOptions.usesLineFragmentOrigin
         let rect:CGRect = text.boundingRect(with: size, options: option, attributes: attributes, context: nil)
 //        print("checkboxtextsize = \(rect.size.width)")
