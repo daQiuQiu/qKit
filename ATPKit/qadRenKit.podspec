@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "qadRenKit"
-  s.version      = "0.2"
+  s.version      = "0.3"
   s.summary      = "qKit provides digital ads display using Nebulas blockchain"
 
   # This description is used to generate tags and improve search results.
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "ATPKit", "ATPKit/**/*.{h,m}"
+  s.source_files  = "ATPKit", "ATPKit/**/*.{h,m,swift}"
   s.exclude_files = "ATPKit/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
