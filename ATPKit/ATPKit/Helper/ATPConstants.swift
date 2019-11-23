@@ -38,7 +38,7 @@ func print(object: Any) {}
 func println(object: Any) {}
 func println() {}
 
-func NSLog(format: String, args: CVarArgType...) {}
+//func NSLog(format: String, args: CVarArgType...) {}
 #endif
 
 public class ATPConstants {

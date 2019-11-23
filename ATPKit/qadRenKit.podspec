@@ -63,8 +63,8 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "9.0"
-  s.swift_versions = "4.0"
+  s.platform     = :ios, "10.0"
+  s.swift_versions = "5.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -132,7 +132,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-    s.dependency "SnapKit", "~> 4.0.0"
+    s.dependency "SnapKit", "~> 5.0.1"
     s.dependency "Alamofire"
     s.dependency "DLRadioButton"
     s.dependency "SDWebImage"
