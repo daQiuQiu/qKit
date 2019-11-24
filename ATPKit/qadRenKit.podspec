@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "qadRenKit"
-  s.version      = "0.3"
+  s.version      = "0.1.3"
   s.summary      = "qKit provides digital ads display using Nebulas blockchain"
 
   # This description is used to generate tags and improve search results.
