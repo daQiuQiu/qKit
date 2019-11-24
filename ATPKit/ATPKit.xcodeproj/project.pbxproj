@@ -11,7 +11,6 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 8F86FB1C2175A37A00CC315D /* Build configuration list for PBXAggregateTarget "ATPKit-Universal" */;
 			buildPhases = (
-				8F86FB1F2175A38000CC315D /* ShellScript */,
 			);
 			dependencies = (
 			);
@@ -22,19 +21,10 @@
 
 /* Begin PBXBuildFile section */
 		3E6F71D121392F00007DD408 /* ATPManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F71D021392F00007DD408 /* ATPManagerProtocol.swift */; };
-		3E6F71D221392F00007DD408 /* ATPManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F71D021392F00007DD408 /* ATPManagerProtocol.swift */; };
 		3E6F71D521392FEA007DD408 /* ATPConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F71D421392FEA007DD408 /* ATPConfig.swift */; };
-		3E6F71D621392FEA007DD408 /* ATPConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6F71D421392FEA007DD408 /* ATPConfig.swift */; };
-		3EA449BF213832C200CE2BB9 /* ATPKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA449B5213832C200CE2BB9 /* ATPKit.framework */; };
-		3EA449C4213832C200CE2BB9 /* ATPKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA449C3213832C200CE2BB9 /* ATPKitTests.swift */; };
-		3EA449C6213832C200CE2BB9 /* ATPKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EA449B8213832C200CE2BB9 /* ATPKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EFF2FD321397BA1001CD174 /* BCDVotingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF2FD221397BA1001CD174 /* BCDVotingManager.swift */; };
-		3EFF2FD421397BA1001CD174 /* BCDVotingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF2FD221397BA1001CD174 /* BCDVotingManager.swift */; };
 		3EFF2FDC21398A8D001CD174 /* BCDelegateKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF2FDB21398A8D001CD174 /* BCDelegateKit.swift */; };
-		3EFF2FDD21398A8D001CD174 /* BCDelegateKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF2FDB21398A8D001CD174 /* BCDelegateKit.swift */; };
 		3EFF2FDF21398EF2001CD174 /* ATPKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF2FDE21398EF2001CD174 /* ATPKit.swift */; };
-		3EFF2FE021398EF2001CD174 /* ATPKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF2FDE21398EF2001CD174 /* ATPKit.swift */; };
-		862C1B97712394D1F7498592 /* Pods_ATPKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE55AA1A9458EA78A930F921 /* Pods_ATPKitTests.framework */; };
 		8F354FC921855094003AD468 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F354FCB21855094003AD468 /* Localizable.strings */; };
 		8F47439B21DE49E500CB51A8 /* ATPJSContextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F47439A21DE49E500CB51A8 /* ATPJSContextModel.swift */; };
 		8F489B24219D728900EDE7D0 /* SDTIEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F489B23219D728900EDE7D0 /* SDTIEModel.swift */; };
@@ -42,7 +32,6 @@
 		8F4E846521A82BAD0075DAAA /* placeholderFail.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F4E846321A82BAD0075DAAA /* placeholderFail.png */; };
 		8F4E9E8E21DF523300521CE4 /* FBTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4E9E8D21DF523200521CE4 /* FBTextView.swift */; };
 		8F4F0BF02192EF6800CBC033 /* ATPTopNaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F0BEF2192EF6800CBC033 /* ATPTopNaviView.swift */; };
-		8F5000A721A55C4D0009C78D /* BCInteractKit-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5000A621A55C4D0009C78D /* BCInteractKit-Test.swift */; };
 		8F50880F218AF57D00AD22E5 /* BCInteractAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50880E218AF57D00AD22E5 /* BCInteractAPI.swift */; };
 		8F508811218AF62600AD22E5 /* ATPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F508810218AF62600AD22E5 /* ATPConstants.swift */; };
 		8F508813218AFF6600AD22E5 /* BCInteractManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F508812218AFF6600AD22E5 /* BCInteractManager.swift */; };
@@ -63,35 +52,6 @@
 		8F51EC1B2195963F00248F7E /* checkboxSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F51EC182195963F00248F7E /* checkboxSelected.png */; };
 		8F51EC1F2195966D00248F7E /* atptitlelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F51EC1D2195966D00248F7E /* atptitlelogo.png */; };
 		8F51EC202195966D00248F7E /* atplogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F51EC1E2195966D00248F7E /* atplogo.png */; };
-		8F534A4A21AB92EC0043AD34 /* BCDVote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50AB592191883C00DFC150 /* BCDVote.swift */; };
-		8F534A4B21AB92EC0043AD34 /* BCDVoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50AB572191883B00DFC150 /* BCDVoteData.swift */; };
-		8F534A4C21AB92EC0043AD34 /* BCDAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50AB582191883C00DFC150 /* BCDAccount.swift */; };
-		8F534A4D21AB92EC0043AD34 /* TIE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50AB4B2191877C00DFC150 /* TIE.swift */; };
-		8F534A4E21AB92EC0043AD34 /* BCITransactionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FC70219073DE00FDC23D /* BCITransactionInfo.swift */; };
-		8F534A4F21AB92EC0043AD34 /* BCIPayloadConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50AAFC21913E8F00DFC150 /* BCIPayloadConfig.swift */; };
-		8F534A5021AB92EC0043AD34 /* SDTIEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F489B23219D728900EDE7D0 /* SDTIEModel.swift */; };
-		8F534A5121AB92EC0043AD34 /* VoteTIEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789D121A2922900537EB9 /* VoteTIEModel.swift */; };
-		8F534A5221AB92EC0043AD34 /* ATPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50AB612191884600DFC150 /* ATPErrors.swift */; };
-		8F534A5321AB92EC0043AD34 /* ATPExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FC6E219066AD00FDC23D /* ATPExtensions.swift */; };
-		8F534A5421AB92EC0043AD34 /* ATPKitErrorMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F51345121803F5900DC6F63 /* ATPKitErrorMsg.swift */; };
-		8F534A5521AB92EC0043AD34 /* ATPErrorSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F508814218B041A00AD22E5 /* ATPErrorSource.swift */; };
-		8F534A5621AB92EC0043AD34 /* ATPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F508810218AF62600AD22E5 /* ATPConstants.swift */; };
-		8F534A5721AB92EC0043AD34 /* BCInteractAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50880E218AF57D00AD22E5 /* BCInteractAPI.swift */; };
-		8F534A5821AB92EC0043AD34 /* BCInteractManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F508812218AFF6600AD22E5 /* BCInteractManager.swift */; };
-		8F534A5921AB92EC0043AD34 /* BCInteractKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CB6DA218BED2900650EE1 /* BCInteractKit.swift */; };
-		8F534A5A21AB93410043AD34 /* CBToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50AB0521916B2E00DFC150 /* CBToast.swift */; };
-		8F534A5B21AB93410043AD34 /* ATPTopNaviView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F0BEF2192EF6800CBC033 /* ATPTopNaviView.swift */; };
-		8F534A5C21AB93410043AD34 /* ATPAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F51EBFF2195577D00248F7E /* ATPAlertView.swift */; };
-		8F534A5D21AB93410043AD34 /* SDCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2500121A433E50064B41D /* SDCheckBoxView.swift */; };
-		8F534A5E21AB93410043AD34 /* SDDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB204662193E56A00FDAF10 /* SDDisplayView.swift */; };
-		8F534A5F21AB93410043AD34 /* VoteDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789CF21A27E9D00537EB9 /* VoteDisplayView.swift */; };
-		8F534A6021AB93410043AD34 /* SDGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB2046E2193E6FE00FDAF10 /* SDGifView.swift */; };
-		8F534A6121AB93410043AD34 /* SDReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB204702193E71D00FDAF10 /* SDReceiptView.swift */; };
-		8F534A6221AB93410043AD34 /* ATPBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94C4B121A2DEC300ECEDA7 /* ATPBaseView.swift */; };
-		8F534A6321AB93410043AD34 /* ATPSmartDropRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6C48E021902F0D007EF15C /* ATPSmartDropRender.swift */; };
-		8F534A6421AB93410043AD34 /* ATPVotingRenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6789CD21A25DDC00537EB9 /* ATPVotingRenderVC.swift */; };
-		8F534A6521AB93410043AD34 /* ATPDelegateVotingRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F50AB522191882800DFC150 /* ATPDelegateVotingRender.swift */; };
-		8F534AA321ABCD050043AD34 /* ATPKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = 3EA449B5213832C200CE2BB9 /* ATPKit.framework */; };
 		8F5A790821A6E81100FAFF5E /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F5A790721A6E81100FAFF5E /* success.png */; };
 		8F5CB6DB218BED2900650EE1 /* BCInteractKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CB6DA218BED2900650EE1 /* BCInteractKit.swift */; };
 		8F5FDCDF21E2FBB400C930B1 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F5FDCD821E2FBB400C930B1 /* delete.png */; };
@@ -114,22 +74,12 @@
 		8FE4FC71219073DE00FDC23D /* BCITransactionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FC70219073DE00FDC23D /* BCITransactionInfo.swift */; };
 		8FF2500221A433E50064B41D /* SDCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2500121A433E50064B41D /* SDCheckBoxView.swift */; };
 		99D47F80804EFE7821BEBB86 /* Pods_ATPKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38410C665524D0900AB3575 /* Pods_ATPKit.framework */; };
-		BEF8C06DAFD773E25448B7D9 /* BCDelegateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8C23A4B11ED0C87E4A213 /* BCDelegateAPI.swift */; };
 		BEF8C61FC4512DE4418F2B34 /* ATPConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8C258E1B439EC200BBA0A /* ATPConnectivity.swift */; };
 		BEF8C80B4299B922D794EFE2 /* BCDelegateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8C23A4B11ED0C87E4A213 /* BCDelegateAPI.swift */; };
 		BEF8C9E6D3777B0970D8EE28 /* ATPHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8C70B55826706DADC46CE /* ATPHTTPClient.swift */; };
-		BEF8CCAE04AA06910B1EA784 /* ATPConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8C258E1B439EC200BBA0A /* ATPConnectivity.swift */; };
-		BEF8CDFDA148ED36130EDFC5 /* ATPHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF8C70B55826706DADC46CE /* ATPHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3EA449C0213832C200CE2BB9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3EA449AC213832C200CE2BB9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3EA449B4213832C200CE2BB9;
-			remoteInfo = ATPKit;
-		};
 		3EFF2FC821396F92001CD174 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3EFF2F9021396F92001CD174 /* Pods.xcodeproj */;
@@ -143,13 +93,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = F14F20944F44AD38377058513BA530A5;
 			remoteInfo = "Pods-ATPKit";
-		};
-		3EFF2FCC21396F92001CD174 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3EFF2F9021396F92001CD174 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 41414906BF4DE5451F23EE6C0F0C60D6;
-			remoteInfo = "Pods-ATPKitTests";
 		};
 		8F4F0BEB2192EF2200CBC033 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -177,15 +120,10 @@
 /* Begin PBXFileReference section */
 		0BA46C4F968F9666510810A9 /* Pods-ATPKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATPKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATPKit/Pods-ATPKit.debug.xcconfig"; sourceTree = "<group>"; };
 		0CE7FF9333B9F3C1CFD76E48 /* Pods-ATPKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATPKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATPKit/Pods-ATPKit.release.xcconfig"; sourceTree = "<group>"; };
-		1811F93E58C3B9D7CFEF5F77 /* Pods-ATPKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATPKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATPKitTests/Pods-ATPKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E6F71D021392F00007DD408 /* ATPManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPManagerProtocol.swift; sourceTree = "<group>"; };
 		3E6F71D421392FEA007DD408 /* ATPConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPConfig.swift; sourceTree = "<group>"; };
 		3EA449B5213832C200CE2BB9 /* ATPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3EA449B8213832C200CE2BB9 /* ATPKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPKit.h; sourceTree = "<group>"; };
 		3EA449B9213832C200CE2BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3EA449BE213832C200CE2BB9 /* ATPKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATPKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3EA449C3213832C200CE2BB9 /* ATPKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPKitTests.swift; sourceTree = "<group>"; };
-		3EA449C5213832C200CE2BB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EFF2F9021396F92001CD174 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
 		3EFF2F9421396F92001CD174 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3EFF2F9621396F92001CD174 /* TaskDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDelegate.swift; sourceTree = "<group>"; };
@@ -241,7 +179,6 @@
 		8F4E846321A82BAD0075DAAA /* placeholderFail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderFail.png; sourceTree = "<group>"; };
 		8F4E9E8D21DF523200521CE4 /* FBTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBTextView.swift; sourceTree = "<group>"; };
 		8F4F0BEF2192EF6800CBC033 /* ATPTopNaviView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPTopNaviView.swift; sourceTree = "<group>"; };
-		8F5000A621A55C4D0009C78D /* BCInteractKit-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BCInteractKit-Test.swift"; sourceTree = "<group>"; };
 		8F50880E218AF57D00AD22E5 /* BCInteractAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCInteractAPI.swift; sourceTree = "<group>"; };
 		8F508810218AF62600AD22E5 /* ATPConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATPConstants.swift; sourceTree = "<group>"; };
 		8F508812218AFF6600AD22E5 /* BCInteractManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCInteractManager.swift; sourceTree = "<group>"; };
@@ -286,9 +223,7 @@
 		BEF8C23A4B11ED0C87E4A213 /* BCDelegateAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCDelegateAPI.swift; sourceTree = "<group>"; };
 		BEF8C258E1B439EC200BBA0A /* ATPConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATPConnectivity.swift; sourceTree = "<group>"; };
 		BEF8C70B55826706DADC46CE /* ATPHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATPHTTPClient.swift; sourceTree = "<group>"; };
-		CE55AA1A9458EA78A930F921 /* Pods_ATPKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATPKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38410C665524D0900AB3575 /* Pods_ATPKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATPKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F949BB6688EFBA790E891952 /* Pods-ATPKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATPKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATPKitTests/Pods-ATPKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,15 +235,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3EA449BB213832C200CE2BB9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3EA449BF213832C200CE2BB9 /* ATPKit.framework in Frameworks */,
-				862C1B97712394D1F7498592 /* Pods_ATPKitTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -317,7 +243,6 @@
 			children = (
 				3EFF2F8F21396F92001CD174 /* Pods */,
 				E38410C665524D0900AB3575 /* Pods_ATPKit.framework */,
-				CE55AA1A9458EA78A930F921 /* Pods_ATPKitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -370,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				3EA449B7213832C200CE2BB9 /* ATPKit */,
-				3EA449C2213832C200CE2BB9 /* ATPKitTests */,
 				3EA449B6213832C200CE2BB9 /* Products */,
 				3E6F71CB21392D6C007DD408 /* Frameworks */,
 				D87D70D777FA7B872F54548F /* Pods */,
@@ -381,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				3EA449B5213832C200CE2BB9 /* ATPKit.framework */,
-				3EA449BE213832C200CE2BB9 /* ATPKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -396,20 +319,9 @@
 				3E6F71D321392FC6007DD408 /* Config */,
 				3E6F71CF21392EE8007DD408 /* Services */,
 				8FE4FC6621902F2700FDC23D /* Renderer */,
-				3EA449B8213832C200CE2BB9 /* ATPKit.h */,
 				3EA449B9213832C200CE2BB9 /* Info.plist */,
 			);
 			path = ATPKit;
-			sourceTree = "<group>";
-		};
-		3EA449C2213832C200CE2BB9 /* ATPKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				3EA449C3213832C200CE2BB9 /* ATPKitTests.swift */,
-				8F5000A621A55C4D0009C78D /* BCInteractKit-Test.swift */,
-				3EA449C5213832C200CE2BB9 /* Info.plist */,
-			);
-			path = ATPKitTests;
 			sourceTree = "<group>";
 		};
 		3EFF2F8F21396F92001CD174 /* Pods */ = {
@@ -431,7 +343,6 @@
 				3EFF2FC921396F92001CD174 /* Alamofire.framework */,
 				8F86FB152175A29900CC315D /* DLRadioButton.framework */,
 				3EFF2FCB21396F92001CD174 /* Pods_ATPKit.framework */,
-				3EFF2FCD21396F92001CD174 /* Pods_ATPKitTests.framework */,
 				8F4F0BEC2192EF2200CBC033 /* SDWebImage.framework */,
 				8F4F0BEE2192EF2200CBC033 /* SnapKit.framework */,
 			);
@@ -637,8 +548,6 @@
 			children = (
 				0BA46C4F968F9666510810A9 /* Pods-ATPKit.debug.xcconfig */,
 				0CE7FF9333B9F3C1CFD76E48 /* Pods-ATPKit.release.xcconfig */,
-				F949BB6688EFBA790E891952 /* Pods-ATPKitTests.debug.xcconfig */,
-				1811F93E58C3B9D7CFEF5F77 /* Pods-ATPKitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -650,7 +559,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EA449C6213832C200CE2BB9 /* ATPKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,26 +585,6 @@
 			productReference = 3EA449B5213832C200CE2BB9 /* ATPKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3EA449BD213832C200CE2BB9 /* ATPKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3EA449CC213832C200CE2BB9 /* Build configuration list for PBXNativeTarget "ATPKitTests" */;
-			buildPhases = (
-				B11B0F69C29D834A7D83111B /* [CP] Check Pods Manifest.lock */,
-				3EA449BA213832C200CE2BB9 /* Sources */,
-				3EA449BB213832C200CE2BB9 /* Frameworks */,
-				3EA449BC213832C200CE2BB9 /* Resources */,
-				74B741A53B004CCB6BA3EAF1 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3EA449C1213832C200CE2BB9 /* PBXTargetDependency */,
-			);
-			name = ATPKitTests;
-			productName = ATPKitTests;
-			productReference = 3EA449BE213832C200CE2BB9 /* ATPKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -710,9 +598,6 @@
 					3EA449B4213832C200CE2BB9 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1010;
-					};
-					3EA449BD213832C200CE2BB9 = {
-						CreatedOnToolsVersion = 9.4.1;
 					};
 					8F86FB1B2175A37A00CC315D = {
 						CreatedOnToolsVersion = 10.0;
@@ -740,7 +625,6 @@
 			projectRoot = "";
 			targets = (
 				3EA449B4213832C200CE2BB9 /* ATPKit */,
-				3EA449BD213832C200CE2BB9 /* ATPKitTests */,
 				8F86FB1B2175A37A00CC315D /* ATPKit-Universal */,
 			);
 		};
@@ -759,13 +643,6 @@
 			fileType = wrapper.framework;
 			path = Pods_ATPKit.framework;
 			remoteRef = 3EFF2FCA21396F92001CD174 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3EFF2FCD21396F92001CD174 /* Pods_ATPKitTests.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Pods_ATPKitTests.framework;
-			remoteRef = 3EFF2FCC21396F92001CD174 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		8F4F0BEC2192EF2200CBC033 /* SDWebImage.framework */ = {
@@ -813,41 +690,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3EA449BC213832C200CE2BB9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F534AA321ABCD050043AD34 /* ATPKit.framework in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		74B741A53B004CCB6BA3EAF1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ATPKitTests/Pods-ATPKitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ATPKitTests/Pods-ATPKitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8F5300E221E75F2E00DA9FCA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -865,37 +710,6 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\nWORKSPACE_NAME=${PROJECT_NAME}.xcworkspace\nBUILD_FOLDER=${PROJECT_DIR}/ATPBuild/ATP_iOS_Release\nBUILD_TIME=`date \"+%y%m%d\"`\n# make sure the output directory exists\nmkdir -p \"${BUILD_FOLDER}/atpkit_release_${BUILD_TIME}\"\n#Step 1. Copy to Project Dir\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${BUILD_FOLDER}/atpkit_release_${BUILD_TIME}\"\n# Step 6. zip framework\ncd \"${PROJECT_DIR}/ATPBuild/ATP_iOS_Release\"\nzip -r \"ATP_iOS_release_${BUILD_TIME}.zip\" \"atpkit_release_${BUILD_TIME}\"\n#latest version\nzip -r \"ATP_iOS_release_latest.zip\" \"atpkit_release_${BUILD_TIME}\"\nrm -rf \"${PROJECT_DIR}/ATPBuild/ATP_iOS_Release/atpkit_release_${BUILD_TIME}\"\n# Step 7. Convenience step to open the project's directory in Finder\n#open \"${PROJECT_DIR}/ATPBuild\"\n";
 		};
-		8F86FB1F2175A38000CC315D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nWORKSPACE_NAME=${PROJECT_NAME}.xcworkspace\nBUILD_FOLDER=${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\nBUILD_TIME=`date \"+%y%m%d\"`\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n# Step 1. Build Device and Simulator versions\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphoneos ONLY_ACTIVE_ARCH=NO   BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -workspace \"${WORKSPACE_NAME}\" -scheme \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n#Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${BUILD_FOLDER}/atpkit_${BUILD_TIME}\"\n# Step 6. zip framework\ncd \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK\"\nzip -r \"ATP_iOS_${BUILD_TIME}.zip\" \"atpkit_${BUILD_TIME}\"\n#latest version\nzip -r \"ATP_iOS_latest.zip\" \"atpkit_${BUILD_TIME}\"\nrm -rf \"${PROJECT_DIR}/ATPBuild/ATP_iOS_SDK/atpkit_${BUILD_TIME}\"\n# Step 7. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}/ATPBuild\"\n\n\n";
-		};
-		B11B0F69C29D834A7D83111B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ATPKitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D5BC07F63A060BDBFFC8F6E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -912,7 +726,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -966,60 +779,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3EA449BA213832C200CE2BB9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F534A5A21AB93410043AD34 /* CBToast.swift in Sources */,
-				8F534A5B21AB93410043AD34 /* ATPTopNaviView.swift in Sources */,
-				8F534A5C21AB93410043AD34 /* ATPAlertView.swift in Sources */,
-				8F534A5D21AB93410043AD34 /* SDCheckBoxView.swift in Sources */,
-				8F534A5E21AB93410043AD34 /* SDDisplayView.swift in Sources */,
-				8F534A5F21AB93410043AD34 /* VoteDisplayView.swift in Sources */,
-				8F534A6021AB93410043AD34 /* SDGifView.swift in Sources */,
-				8F534A6121AB93410043AD34 /* SDReceiptView.swift in Sources */,
-				8F534A6221AB93410043AD34 /* ATPBaseView.swift in Sources */,
-				8F534A6321AB93410043AD34 /* ATPSmartDropRender.swift in Sources */,
-				8F534A6421AB93410043AD34 /* ATPVotingRenderVC.swift in Sources */,
-				8F534A6521AB93410043AD34 /* ATPDelegateVotingRender.swift in Sources */,
-				8F534A4A21AB92EC0043AD34 /* BCDVote.swift in Sources */,
-				8F534A4B21AB92EC0043AD34 /* BCDVoteData.swift in Sources */,
-				8F534A4C21AB92EC0043AD34 /* BCDAccount.swift in Sources */,
-				8F534A4D21AB92EC0043AD34 /* TIE.swift in Sources */,
-				8F534A4E21AB92EC0043AD34 /* BCITransactionInfo.swift in Sources */,
-				8F534A4F21AB92EC0043AD34 /* BCIPayloadConfig.swift in Sources */,
-				8F534A5021AB92EC0043AD34 /* SDTIEModel.swift in Sources */,
-				8F534A5121AB92EC0043AD34 /* VoteTIEModel.swift in Sources */,
-				8F534A5221AB92EC0043AD34 /* ATPErrors.swift in Sources */,
-				8F534A5321AB92EC0043AD34 /* ATPExtensions.swift in Sources */,
-				8F534A5421AB92EC0043AD34 /* ATPKitErrorMsg.swift in Sources */,
-				8F534A5521AB92EC0043AD34 /* ATPErrorSource.swift in Sources */,
-				8F534A5621AB92EC0043AD34 /* ATPConstants.swift in Sources */,
-				8F534A5721AB92EC0043AD34 /* BCInteractAPI.swift in Sources */,
-				8F534A5821AB92EC0043AD34 /* BCInteractManager.swift in Sources */,
-				8F534A5921AB92EC0043AD34 /* BCInteractKit.swift in Sources */,
-				3EA449C4213832C200CE2BB9 /* ATPKitTests.swift in Sources */,
-				3E6F71D621392FEA007DD408 /* ATPConfig.swift in Sources */,
-				3EFF2FE021398EF2001CD174 /* ATPKit.swift in Sources */,
-				8F5000A721A55C4D0009C78D /* BCInteractKit-Test.swift in Sources */,
-				3E6F71D221392F00007DD408 /* ATPManagerProtocol.swift in Sources */,
-				BEF8CDFDA148ED36130EDFC5 /* ATPHTTPClient.swift in Sources */,
-				3EFF2FDD21398A8D001CD174 /* BCDelegateKit.swift in Sources */,
-				BEF8C06DAFD773E25448B7D9 /* BCDelegateAPI.swift in Sources */,
-				BEF8CCAE04AA06910B1EA784 /* ATPConnectivity.swift in Sources */,
-				3EFF2FD421397BA1001CD174 /* BCDVotingManager.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3EA449C1213832C200CE2BB9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3EA449B4213832C200CE2BB9 /* ATPKit */;
-			targetProxy = 3EA449C0213832C200CE2BB9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8F354FCB21855094003AD468 /* Localizable.strings */ = {
@@ -1172,6 +932,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = YES;
+				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ATPBuild/ATP_iOS_Build/atpkit_181128",
@@ -1179,7 +940,7 @@
 				);
 				INFOPLIST_FILE = ATPKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1229,7 +990,7 @@
 				);
 				INFOPLIST_FILE = ATPKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1253,51 +1014,6 @@
 				STRIP_STYLE = "non-global";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		3EA449CD213832C200CE2BB9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F949BB6688EFBA790E891952 /* Pods-ATPKitTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5SY83Z869;
-				INFOPLIST_FILE = ATPKitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D DEBUG\" \"-D\" \"DEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = io.atlasp.ATPKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3EA449CE213832C200CE2BB9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1811F93E58C3B9D7CFEF5F77 /* Pods-ATPKitTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5SY83Z869;
-				INFOPLIST_FILE = ATPKitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D DEBUG\" \"-D\" \"DEBUG\"";
-				PRODUCT_BUNDLE_IDENTIFIER = io.atlasp.ATPKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1350,15 +1066,6 @@
 			buildConfigurations = (
 				3EA449CA213832C200CE2BB9 /* Debug */,
 				3EA449CB213832C200CE2BB9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3EA449CC213832C200CE2BB9 /* Build configuration list for PBXNativeTarget "ATPKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3EA449CD213832C200CE2BB9 /* Debug */,
-				3EA449CE213832C200CE2BB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
