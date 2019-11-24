@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 @objc public class ATPKit: NSObject {
     @objc public static let sharedInstance = ATPKit()
